@@ -1,0 +1,68 @@
+{% extends "sunneberg/base.html" %}
+
+{% block apple %}active{% endblock %}
+
+{% load static %}
+
+{% block body %}
+
+<!-- cow pix -->
+<section class="about py-5" id="about">
+	<div class="container py-lg-5 py-sm-3">
+		<h3 class="heading mb-sm-5 mb-4 text-center"> Apple juice</h3>
+		<h2><center>Find information about our apple juice</center></h2>
+		<br />
+		<div class="row">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-10">
+				<img src="{% static 'images/appletree.jpg' %}" alt="appletree" style="float:left;width:50%;height:70%;object-fit:cover;">
+				<img src="{% static 'images/apple.jpg' %}" alt="apple" style="float:left;width:50%;height:70%;object-fit:cover;">
+			</div>
+			<div class="col-lg-1"></div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 pl-xl-5 mt-lg-0 mt-4">
+				<p class="pt-3 mt-3 border-top">
+					Nullam consequat sapien ut
+					leot cursus rhoncus. Nullam dui mi, vulputate ac metus at, semper varius orci. Nulla sed accumsan ac elit in congue. Class aptent taciti sociosqu ad
+					litora torquent per taciti sociosqu ad litora torquent.
+					Nullam consequat sapien utleot cursus rhoncus. Nullam dui mi, vulputate ac metus at, semper varius orci. Nulla sed accumsan ac elit in congue. Class aptent taciti sociosqu ad
+					litora torquent per taciti sociosqu ad litora torquent.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //cow pix -->
+
+
+<!-- Meat stock -->
+<div class="abt_bottom py-md-5">
+	<div class="container py-md-4 py-5">
+		<div class="row">
+            <div class="col-md-2"></div>
+			<div class="col-md-8">
+				<h4 class="abt-text text-capitalize"><center>Our available meat to buy</center>	</h4>
+            </div>
+			<div class="col-md-2"></div>
+
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item d-flex justify-content-between align-items-center">
+					Entrecote
+					</li>
+					<li class="list-group-item d-flex justify-content-between align-items-center">
+					Filet
+					</li>
+					<li class="list-group-item d-flex justify-content-between align-items-center">
+					Foie
+					</li>
+			  	</ul>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+</div>
+<!-- //about bottom -->
+
+{% endblock %}

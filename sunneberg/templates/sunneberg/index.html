@@ -1,0 +1,143 @@
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% extends "sunneberg/base.html" %}
+{% load static %}
+{% block index %}active{% endblock %}
+
+{% block banner %}
+    <!-- banner -->
+    <section class="banner_w3lspvt" id="home">
+        <div class="csslider infinity" id="slider1">
+            <input type="radio" name="slides" checked="checked" id="slides_1" />
+            <input type="radio" name="slides" id="slides_2" />
+            <input type="radio" name="slides" id="slides_3" />
+            <input type="radio" name="slides" id="slides_4" />
+            <ul>
+                <li>
+                    <div class="banner-top" style="background: url({{farm.img_img.url}}) no-repeat center;">
+                        <div class="overlay">
+                            <div class="container">
+                                <div class="w3layouts-banner-info text-center">
+                                    <h3 class="text-wh">About us</h3>
+                                    <h4 class="text-wh mx-auto my-4">Discover how we are and what we do</h4>
+                                    <p class="text-li mx-auto mt-2">Ut enim ad minim quis nostrud exerci sed do eiusmod tempor incididunt ut
+                                        labore et dolore magna aliqua nostrud exerci sed.</p>
+                                    <a href="/sunneberg/aboutus/" class="button-style mt-sm-5 mt-4">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="banner-top" style="background: url({{cows.img_img.url}}) no-repeat center"> 
+                        <div class="overlay1">
+                            <div class="container">
+                                <div class="w3layouts-banner-info text-center">
+                                    <h3 class="text-wh">Pastoral farming</h3>
+                                    <h4 class="text-wh mx-auto my-4">We raise cows in order to produce meat</h4>
+                                    <p class="text-li mx-auto mt-2">Ut enim ad minim quis nostrud exerci sed do eiusmod tempor incididunt ut
+                                        labore et dolore magna aliqua nostrud exerci sed.</p>
+                                    <a href="about.html" class="button-style mt-sm-5 mt-4">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="banner-top" style="background: url({{grappes.img_img.url}}) no-repeat center">
+                        <div class="overlay">
+                            <div class="container">
+                                <div class="w3layouts-banner-info text-center">
+                                    <h3 class="text-wh">Vineyard</h3>
+                                    <h4 class="text-wh mx-auto my-4">Cultivating grappes to produce vine</h4>
+                                    <p class="text-li mx-auto mt-2">Ut enim ad minim quis nostrud exerci sed do eiusmod tempor incididunt ut
+                                        labore et dolore magna aliqua nostrud exerci sed.</p>
+                                    <a href="about.html" class="button-style mt-sm-5 mt-4">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="banner-top" style="background: url({{appel.img_img.url}}) no-repeat center">
+                        <div class="overlay1">
+                            <div class="container">
+                                <div class="w3layouts-banner-info text-center">
+                                    <h3 class="text-wh">Apple</h3>
+                                    <h4 class="text-wh mx-auto my-4">Thanks to our appletree we produce fresh juice</h4>
+                                    <p class="text-li mx-auto mt-2">Ut enim ad minim quis nostrud exerci sed do eiusmod tempor incididunt ut
+                                        labore et dolore magna aliqua nostrud exerci sed.</p>
+                                    <a href="about.html" class="button-style mt-sm-5 mt-4">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="arrows">
+                <label for="slides_1"></label>
+                <label for="slides_2"></label>
+                <label for="slides_3"></label>
+                <label for="slides_4"></label>
+            </div>
+        </div>
+    </section>
+    <!-- //banner -->
+    <!-- <img src="/sunneberg{{cows.img_cows.url}}" -->
+{% endblock %}
+    
+{% block body %}
+<!-- Products & Services -->
+<section class="blog py-5">
+	<div class="container py-md-5">
+		<h3 class="heading mb-sm-5 mb-4 text-center"> Our Products and Services</h3>
+		<div class="row blog-grids">
+			<div class="col-lg-4 col-md-6 blog-left mb-lg-0 mb-sm-5 pb-lg-0 pb-5">	
+				<img src="{% static 'images/s1.jpg' %}" class="img-fliud" alt="" />
+				<div class="blog-info">
+					<h4>Pastoral Farming <span class="fa fa-pagelines"></span></h4>
+					<p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 blog-middle mb-lg-0 mb-sm-5 pb-lg-0 pb-md-5">	
+				<img src="{% static 'images/s2.jpg' %}" class="img-fliud" alt="" />
+				<div class="blog-info">
+					<h4>Vineyard <span class="fa fa-pagelines"></span></h4>
+					<p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 blog-right mt-lg-0 mt-5 pt-lg-0 pt-md-5">
+				<img src="{% static 'images/s3.jpg' %}" class="img-fliud" alt="" />
+				<div class="blog-info">
+					<h4>Apple <span class="fa fa-pagelines"></span></h4>
+					<p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //Products & Services -->
+
+<!-- newsletter -->
+<div class="newsletter_right_w3 py-5">
+	<div class="container py-lg-3">
+	<h3 class="heading mb-4 text-center">Subscribe Newsletter</h3>
+		<p class="sub-tittle text-center mb-sm-5 mb-4">Sed do eiusmod tempor incididunt ut labore et dolore magna
+			aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+		<div class="n-right-w3ls">
+			<form action="#" method="post" class="newsletter">
+				<input class="email" type="email" placeholder="Enter your email id..." required="">
+				<button class="form-control btn" value="">Subscribe</button>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- //newsletter -->
+{% endblock %}
+
+</body>
+</html>

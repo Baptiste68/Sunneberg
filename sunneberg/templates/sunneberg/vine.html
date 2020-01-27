@@ -1,0 +1,187 @@
+{% extends "sunneberg/base.html" %}
+
+{% block vine %}active{% endblock %}
+
+{% load static %}
+
+
+{% block body %}
+
+
+<!-- team -->
+<div class="team py-5" id="team">
+	<div class="container py-lg-3">
+        <h3 class="heading mb-sm-5 mb-4 text-center"> Our Vine</h3>
+        <div class="container">
+            <h2>List of vine and spiritueux</h2>
+            <p><strong>Note:</strong> All our vine are bio</p>
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: rgb(115,0,62); color: white">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Our red vine</a>
+                  </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="row team-bottom text-center">
+                        <div class="col-lg-6 col-sm-12 team-grid">
+                            <img src="{% static 'images/redbottle.jpg' %}" class="img-fluid" alt="">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Leo Millot</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 team-grid mt-sm-0 mt-5">
+                            <img src="{% static 'images/redbottle.jpg' %}" class="img-fluid" alt="">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Barrique</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not available">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: rgb(255,255,153);">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Our white vine</a>
+                  </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="row team-bottom text-center">
+                        <div class="col-lg-12 col-sm-12 team-grid">
+                            <img src="{% static 'images/whitebottle.jpg' %}" class="img-fluid" alt="">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Chardonay</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: rgb(209,176,167);">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Our rosé</a>
+                  </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="row team-bottom text-center">
+                        <div class="col-lg-12 col-sm-12 team-grid">
+                            <img src="{% static 'images/rosebottle.jpg' %}" class="img-fluid" alt="">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Rosé</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: rgb(217,151,41); color: white">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Our spiritueux</a>
+                  </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <div class="row team-bottom text-center">
+                        <div class="col-lg-3 col-sm-6 team-grid">
+                            <img src="{% static 'images/mirabellebottle.jpg' %}" class="img-fluid" alt="">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Birne</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 team-grid">
+                            <img src="{% static 'images/mirabellebottle.jpg' %}" class="img-fluid" alt="">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Mirabelle</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 team-grid">
+                            <img src="{% static 'images/mirabellebottle.jpg' %}" class="img-fluid" alt="">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Zwetschge</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 team-grid">
+                            <img src="{% static 'images/mirabellebottle.jpg' %}" class="img-fluid" alt="">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Quitte</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+              
+    </div>
+</div>
+
+
+		
+
+<!-- //team -->
+
+
+{% endblock %}
