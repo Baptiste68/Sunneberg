@@ -752,9 +752,10 @@ footer{
 
 /*-- inner banner --*/
 .inner-banner{
-    background: url(../images/2.jpg) no-repeat center;
+	background-color: rgb(113,87,128);
+    /*background: url(../images/2.jpg) no-repeat center;*/
     background-size: cover;
-	min-height: 250px;
+	min-height: 100px;
 	position: relative;
 }
 .inner-banner:before {
@@ -833,7 +834,7 @@ h4.abt-text {
     line-height: 1.4em;
 }
 .abt_bottom{
-    background: #009f4d;
+    background: rgb(217,151,41);
 }
 .abt_bottom a.serv_link {
     font-size: 17px;
