@@ -1,0 +1,57 @@
+{% extends 'sunneberg/base.html' %}
+{% block contact %}active{% endblock %}
+{% block body %}
+
+<section class="contact py-5" style="background-color: rgb(236,196,111)">
+	<div class="container py-sm-3">
+		<h3 class="heading mb-sm-5 mb-4 text-center"> Contact Us</h3>
+		<div class="row map-pos">
+            <div class="col-lg-2 col-md-4"></div>
+			<div class="col-lg-4 col-md-6 address-row">
+				<div class="row">
+					<div class="col-2 address-left">
+						<div class="contact-icon" style="background-color: rgb(54, 0, 115);">
+							<span class="fa fa-home" aria-hidden="true"></span>
+						</div>
+					</div>
+					<div class="col-10 address-right">
+						<h5>Visit Us</h5>
+						<p>Sunneberg 12, 8634 Hombrechtikon</p>
+					</div>
+                </div>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <div class="row">
+					<div class="col-2 address-left">
+						<div class="contact-icon" style="background-color: rgb(54, 0, 115);">
+							<span class="fa fa-envelope" aria-hidden="true"></span>
+						</div>
+					</div>
+					<div class="col-10 address-right">
+						<h5>Mail Us</h5>
+						<p><a href="mailto:info@example.com">Example@gmail.com</a></p>
+					</div>
+                </div>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <div class="row">
+					<div class="col-2 address-left">
+						<div class="contact-icon" style="background-color: rgb(54, 0, 115);">
+							<span class="fa fa-phone" aria-hidden="true"></span>
+						</div>
+					</div>
+					<div class="col-10 address-right">
+						<h5>Call Us</h5>
+						<p>should we?</p>
+					</div>
+				</div>
+            </div>
+            <div class="col-lg-6">
+                <!-- https://www.embedgooglemap.net/ -->
+                <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=sunneberg%2012%2C%208634%20Hombrechtikon&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

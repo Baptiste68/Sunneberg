@@ -56,15 +56,13 @@
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
 				<ul class="list-group">
-					<li class="list-group-item d-flex justify-content-between align-items-center">
-					Entrecote
-					</li>
-					<li class="list-group-item d-flex justify-content-between align-items-center">
-					Filet
-					</li>
-					<li class="list-group-item d-flex justify-content-between align-items-center">
-					Foie
-					</li>
+					{% for i in meat_list.list_content %}
+
+						<li class="list-group-item d-flex justify-content-between align-items-center">
+						{{i}}
+						</li>
+						
+					{% endfor %}
 			  	</ul>
 			</div>
 			<div class="col-md-4"></div>

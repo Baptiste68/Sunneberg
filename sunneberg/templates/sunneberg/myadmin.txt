@@ -6,66 +6,63 @@
 
 
 {% block body %}
-{% load static %}
+
 
 <!-- team -->
 <div class="team py-5" id="team">
 	<div class="container py-lg-3">
-        <h3 class="heading mb-sm-5 mb-4 text-center"> Our Vine</h3>
+        <h3 class="heading mb-sm-5 mb-4 text-center"> Images </h3>
         <div class="container">
-            <h2>List of vine and spiritueux</h2>
-            <p><strong>Note:</strong> All our vine are bio</p>
+            <h2>List of images used </h2>
             <div class="panel-group" id="accordion">
               <div class="panel panel-default">
-                <div class="panel-heading" style="background-color: rgb(115,0,62); color: white">
+                <div class="panel-heading" style="background-color: rgb(54, 0, 115); color: white">
                   <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Our red vine</a>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Home page - Banner</a>
                   </h4>
                 </div>
-                <p>&nbsp;</p>
                 <div id="collapse1" class="panel-collapse collapse in">
                     <div class="row team-bottom text-center">
-                        <div class="col-lg-3 col-sm-6 team-grid">
-                            <img src="{% static 'images/redbottle.jpg' %}" class="img-fluid" alt="">
-                        </div>
-                        <div class="col-lg-3 col-sm-6 team-grid">
+                        <div class="col-lg-6 col-sm-12 team-grid">
+                            <p>&nbsp;</p>
+                            <a  href="/sunneberg/things/{{farm.img_name}}/edit">
+                                <img src="{{farm.img_img.url}}" class="img-fluid" alt="" style="width:50%;height:50%;object-fit:cover;no-repeat center;">
+                            </a>
                             <div class="caption">
                                 <div class="team-text">
-                                    <h4>Leo Millot</h4>
+                                    <h4>About image</h4>
                                 </div>
-                                <ul class="mt-2">
-                                    Ut enim ad minim quis nostrud exerci sed do eiusmod tempor incididunt ut labore et dolore magna aliqua nostrud exerci sed.
-                                </ul>
-                                <ul class="mt-2">
-                                    XX CHF
-                                </ul>
-                                <ul class="mt-2">
-                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
-                                </ul>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6 team-grid mt-sm-0 mt-5">
-                            <img src="{% static 'images/redbottle.jpg' %}" class="img-fluid" alt="">
-                        </div>
-                        <div class="col-lg-3 col-sm-6 team-grid mt-sm-0 mt-5">
+                        <div class="col-lg-6 col-sm-12 team-grid">
+                            <p>&nbsp;</p>
+                            <img src="{{cows.img_img.url}}" class="img-fluid" alt="" style="width:50%;height:50%;object-fit:cover;no-repeat center;">
                             <div class="caption">
                                 <div class="team-text">
-                                    <h4>Barrique</h4>
+                                    <h4>Cow image</h4>
                                 </div>
-                                <ul class="mt-2">
-                                    Ut enim ad minim quis nostrud exerci sed do eiusmod tempor incididunt ut labore et dolore magna aliqua nostrud exerci sed.
-                                </ul>
-                                <ul class="mt-2">
-                                    XX CHF
-                                </ul>
-                                <ul class="mt-2">
-                                    Availability : <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not available">
-                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 team-grid">
+                            <p>&nbsp;</p>
+                            <img src="{{apple.img_img.url}}" class="img-fluid" alt="" style="width:50%;height:50%;object-fit:cover;no-repeat center;">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Apple image</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 team-grid">
+                            <p>&nbsp;</p>
+                            <img src="{{grappes.img_img.url}}" class="img-fluid" alt="" style="width:50%;height:50%;object-fit:cover;no-repeat center;">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Grappes image</h4>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p>&nbsp;</p>
               </div>
               <div class="panel panel-default">
                 <div class="panel-heading" style="background-color: rgb(255,255,153);">

@@ -75,14 +75,32 @@ WSGI_APPLICATION = 'sunneberg_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': {
+            'options': '-c search_path=django,sbschema,testsunnebergdb'
+        },
+        #'TEST': {
+        #    'NAME': 'test_fooddb',
+        #    'options': '-c search_path=django,testfooddb'
+        #},
+        'USER': 'postgres',
+        'NAME': 'sunneberg',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
 
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -135,6 +153,22 @@ MEDIA_URL = '/sunneberg/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'sunneberg/media')
 
 FARM = "Farm_banner_img"
+FARM_TXT = "Farm_banner_txt"
+
 COWS = "Cows_banner_img"
-APPEL = "Appel_banner_img"
+COWS_TXT = "Cows_banner_txt"
+COWS_VIGNETTE = "Cows_vignette_img"
+
+APPLE = "Apple_banner_img"
+APPLE_TXT = "Apple_banner_txt"
+APPLE_VIGNETTE = "Apple_vignette_img"
+
 GRAPPES = "Grappes_banner_img"
+GRAPPES_TXT = "Grappes_banner_txt"
+GRAPPES_VIGNETTE = "Grappes_vignette_img"
+
+MEAT_LIST_NAME = "meat"
+
+NEWSLETTER_USER_LIST = "newslist"
+
+EASY_MAPS_GOOGLE_KEY = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ___0123456789'

@@ -1,0 +1,11 @@
+{% extends 'sunneberg/base.html' %}
+{% block body %}
+<h1>Your difusion list</h1>
+    <p>
+    {% for i in newslist.list_content %}
+    {{i}};  
+    {% endfor %}
+</p>
+
+
+{% endblock %}

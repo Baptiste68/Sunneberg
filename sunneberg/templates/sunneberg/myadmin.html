@@ -1,0 +1,418 @@
+{% extends "sunneberg/base.html" %}
+
+{% block vine %}active{% endblock %}
+
+{% load static %}
+
+
+{% block body %}
+
+
+
+<div class="team py-5" id="team">
+    <!-- Images -->
+	<div class="container py-lg-3">
+        <h3 class="heading mb-sm-5 mb-4 text-center"> Images </h3>
+        <div class="container">
+            <h2>List of images used </h2>
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: rgb(54, 0, 115); color: white">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Home page - Banner</a>
+                  </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="row team-bottom text-center">
+                        <div class="col-lg-6 col-sm-12 team-grid">
+                            <p>&nbsp;</p>
+                            <a href="/sunneberg/things/{{farm.img_name}}/edit">
+                                <img src="{{farm.img_img.url}}" class="img-fluid" alt="" style="width:50%;height:50%;object-fit:cover;no-repeat center;">
+                            </a>
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>About image</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 team-grid">
+                            <p>&nbsp;</p>
+                            <a href="/sunneberg/things/{{cows.img_name}}/edit">
+                                <img src="{{cows.img_img.url}}" class="img-fluid" alt="" style="width:50%;height:50%;object-fit:cover;no-repeat center;">
+                            </a>
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Cow image</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 team-grid">
+                            <p>&nbsp;</p>
+                            <a href="/sunneberg/things/{{apple.img_name}}/edit">
+                                <img src="{{apple.img_img.url}}" class="img-fluid" alt="" style="width:50%;height:50%;object-fit:cover;no-repeat center;">
+                            </a>
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Apple image</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 team-grid">
+                            <p>&nbsp;</p>
+                            <a href="/sunneberg/things/{{grappes.img_name}}/edit">
+                                <img src="{{grappes.img_img.url}}" class="img-fluid" alt="" style="width:50%;height:50%;object-fit:cover;no-repeat center;">
+                            </a>
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Grappes image</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: rgb(54, 0, 115); color: white">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Home - 3 Vignettes</a>
+                  </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="row team-bottom text-center">
+                        <div class="col-lg-4 col-sm-4 team-grid">
+                            <p>&nbsp;</p>
+                            <a href="/sunneberg/things/{{pfarminghome.img_name}}/edit">
+                                <img src="{{pfarminghome.img_img.url}}" class="img-fluid" alt="">
+                            </a>
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Pastoral farming</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 team-grid">
+                            <p>&nbsp;</p>
+                            <a href="/sunneberg/things/{{grappeshome.img_name}}/edit">
+                                <img src="{{grappeshome.img_img.url}}" class="img-fluid" alt="">
+                            </a>
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Vineyard</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 team-grid">
+                            <p>&nbsp;</p>
+                            <a href="/sunneberg/things/{{applehome.img_name}}/edit">
+                                <img src="{{applehome.img_img.url}}" class="img-fluid" alt="">
+                            </a>
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Apple</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: rgb(209,176,167);">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Our rosé</a>
+                  </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="row team-bottom text-center">
+                        <div class="col-lg-12 col-sm-12 team-grid">
+                            <img src="{% static 'images/rosebottle.jpg' %}" class="img-fluid" alt="">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Rosé</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: rgb(217,151,41); color: white">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Our spiritueux</a>
+                  </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <div class="row team-bottom text-center">
+                        <div class="col-lg-3 col-sm-6 team-grid">
+                            <img src="{% static 'images/mirabellebottle.jpg' %}" class="img-fluid" alt="">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Birne</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 team-grid">
+                            <img src="{% static 'images/mirabellebottle.jpg' %}" class="img-fluid" alt="">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Mirabelle</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 team-grid">
+                            <img src="{% static 'images/mirabellebottle.jpg' %}" class="img-fluid" alt="">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Zwetschge</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 team-grid">
+                            <img src="{% static 'images/mirabellebottle.jpg' %}" class="img-fluid" alt="">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Quitte</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+              
+    </div>
+
+    <!-- //Images -->
+
+    <!-- Texte -->
+    <div class="container py-lg-3">
+        <h3 class="heading mb-sm-5 mb-4 text-center"> Texte </h3>
+        <div class="container">
+            <h2>List of texte used </h2>
+            <div class="panel-group" id="accordion1">
+              <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: rgb(54, 0, 115); color: white">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion1" href="#collapse10">Home page - Banner text</a>
+                  </h4>
+                </div>
+                <div id="collapse10" class="panel-collapse collapse">
+                    <div class="row team-bottom text-center">
+                        <div class="col-lg-6 col-sm-12 team-grid">
+                            <p>&nbsp;</p>
+                                <a href="/sunneberg/txt_things/{{farm_txt.txt_name}}/edit">
+                                    <img src="{{farm.img_img.url}}" class="img-fluid" alt="" style="width:50%;height:50%;object-fit:cover;no-repeat center;">
+                                </a>
+                                <div id="txt_overlay"> <a href="/sunneberg/txt_things/{{farm_txt.txt_name}}/edit"> <p>customize</p><p>text only </p> </a>
+                                </div>
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>About image text</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 team-grid">
+                            <p>&nbsp;</p>
+                                <a href="/sunneberg/txt_things/{{cows_txt.txt_name}}/edit">
+                                    <img src="{{cows.img_img.url}}" class="img-fluid" alt="" style="width:50%;height:50%;object-fit:cover;no-repeat center;">
+                                </a>
+                                <div id="txt_overlay"> <a href="/sunneberg/txt_things/{{cows_txt.txt_name}}/edit"> <p>customize</p><p>text only </p> </a>
+                                </div>
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Cow image text</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 team-grid">
+                            <p>&nbsp;</p>
+                                <a href="/sunneberg/txt_things/{{apple_txt.txt_name}}/edit">
+                                    <img src="{{apple.img_img.url}}" class="img-fluid" alt="" style="width:50%;height:50%;object-fit:cover;no-repeat center;">
+                                </a>
+                                <div id="txt_overlay"> <a href="/sunneberg/txt_things/{{apple_txt.txt_name}}/edit"> <p>customize</p><p>text only </p> </a>
+                                </div>
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Apple image txt</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 team-grid">
+                            <p>&nbsp;</p>
+                                <a href="/sunneberg/txt_things/{{grappes_txt.txt_name}}/edit">
+                                    <img src="{{grappes.img_img.url}}" class="img-fluid" alt="" style="width:50%;height:50%;object-fit:cover;no-repeat center;">
+                                </a>
+                                <div id="txt_overlay"> <a href="/sunneberg/txt_things/{{grappes_txt.txt_name}}/edit"> <p>customize</p><p>text only </p> </a>
+                                </div>
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Grappes image txt</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: rgb(255,255,153);">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion1" href="#collapse11">Our white vine</a>
+                  </h4>
+                </div>
+                <div id="collapse11" class="panel-collapse collapse">
+                    <div class="row team-bottom text-center">
+                        <div class="col-lg-12 col-sm-12 team-grid">
+                            <img src="{% static 'images/whitebottle.jpg' %}" class="img-fluid" alt="">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Seval blanc</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="available">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+              
+    </div>
+
+    <!-- //Texte -->
+
+    <!-- Meat list -->
+    <div class="container py-lg-3">
+        <h3 class="heading mb-sm-5 mb-4 text-center"> Meat stock </h3>
+        <div class="container">
+            <h2> </h2>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    {% for i in meat_list.list_content %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{i}}
+                            <span type="button" class="badge badge-primary badge-pill" style="background-color: tomato;" data-toggle="modal" data-target="#ConfPopUp{{i}}">
+                                -
+                            </span>
+                        </li>
+                        <!-- Modal -->
+                        <div class="modal fade" id="ConfPopUp{{i}}" tabindex="-1" role="dialog" aria-labelledby="ConfPopUpTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Delete item</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                Are you sure you want to delete "{{i}}"
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                <form action="#" method="get">
+                                    <button type="submit" class="btn btn-primary" name="Delete">Yes</button>                       
+                                    <input type="hidden" name="element" value="{{i}}">
+                                </form>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                            
+                    {% endfor %}
+                    
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        add new element
+                        <span class="badge badge-primary badge-pill" type="button" data-toggle="modal" data-target="#AddPopUp{{i}}">+</span>
+                    </li>
+                    <!-- Modal -->
+                    <div class="modal fade" id="AddPopUp{{i}}" tabindex="-1" role="dialog" aria-labelledby="AddPopUpTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Adding item</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Please, give a name to the new element:
+                            </div>
+                            <form action="#" method="get">
+                                <input type="text" name="new_element" placeholder="enter name"><br>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="btn btn-primary">Validate</button>       
+                                    
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4"></div>
+              
+          </div>
+              
+    </div>
+
+    <!-- //Meat list -->
+
+     <!-- Newsletter -->
+     <div class="container py-lg-3">
+        <h3 class="heading mb-sm-5 mb-4 text-center"> Newsletter </h3>
+        <div class="col-sm-4"></div>
+        <div class="container col-sm-2">
+            <a href="/sunneberg/displaylist" class="btn btn-info" role="button">Display emai list</a>
+        </div>
+        <div class="container col-sm-2">
+            <a href="/sunneberg/editlist" class="btn btn-info" role="button">Edit emai list</a>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
+
+</div>
+
+
+		
+
+<!-- //team -->
+
+
+{% endblock %}
+
