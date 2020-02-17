@@ -58,7 +58,6 @@ INSTALLED_APPS = [
     'django_cleanup',
     'sunneberg.apps.SunnebergConfig',
     'cloudinary_storage',
-    'django.contrib.staticfiles',
     'cloudinary',
 ]
 
