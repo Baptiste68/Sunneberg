@@ -57,8 +57,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_cleanup',
     'sunneberg.apps.SunnebergConfig',
-    'cloudinary_storage',
-    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -175,15 +173,9 @@ MEDIA_URL = '/sunneberg/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'sunneberg/media')
 """
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'hapqktpfl',
-    'API_KEY': '375969569912331',
-    'API_SECRET': 'oiNXe5qcHmweqdGCQ-FzuYXLpxo',
-}
+MEDIA_URL = '/sunneberg/media/'
 
-MEDIA_URL = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'cloudinary_storage.storage.MediaCloudinaryStorage')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'sunneberg/media')
 
 FARM = "Farm_banner_img"
 FARM_TXT = "Farm_banner_txt"
