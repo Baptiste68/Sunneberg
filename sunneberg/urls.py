@@ -21,4 +21,5 @@ urlpatterns = [
     path(r'editlist/', views.EditListView.as_view(), name='editlist'),
     path(r'editlist/?', views.EditListView.as_view(), name='editlist'),
     path(r'contact/', views.ContactView.as_view(), name='contact'),
+    path(r'testcarou/', views.CarouView.as_view(), name='testcarou'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

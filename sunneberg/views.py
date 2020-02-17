@@ -274,6 +274,15 @@ class ContactView(View):
         return render(request, self.template_name)
 
 
+class CarouView(View):
+    """
+        Class to display contact details
+    """
+    template_name = 'sunneberg/testcarou.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
 
 class BasicInsert(View):
     """
