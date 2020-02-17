@@ -175,9 +175,15 @@ MEDIA_URL = '/sunneberg/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'sunneberg/media')
 """
 
-MEDIA_URL = '/sunneberg/media/'
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'hapqktpfl',
+    'API_KEY': '375969569912331',
+    'API_SECRET': 'oiNXe5qcHmweqdGCQ-FzuYXLpxo',
+}
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'sunneberg/media')
+MEDIA_URL = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'cloudinary_storage.storage.MediaCloudinaryStorage')
 
 FARM = "Farm_banner_img"
 FARM_TXT = "Farm_banner_txt"
@@ -198,12 +204,6 @@ MEAT_LIST_NAME = "meat"
 
 NEWSLETTER_USER_LIST = "newslist"
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'hapqktpfl',
-    'API_KEY': '375969569912331',
-    'API_SECRET': 'oiNXe5qcHmweqdGCQ-FzuYXLpxo',
-}
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
