@@ -57,6 +57,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_cleanup',
     'sunneberg.apps.SunnebergConfig',
+    'cloudinary_storage',
+    'django.contrib.staticfiles',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -196,6 +199,12 @@ MEAT_LIST_NAME = "meat"
 
 NEWSLETTER_USER_LIST = "newslist"
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'hapqktpfl',
+    'API_KEY': '375969569912331',
+    'API_SECRET': 'oiNXe5qcHmweqdGCQ-FzuYXLpxo',
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
