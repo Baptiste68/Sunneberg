@@ -9,7 +9,7 @@
 {% load static %}
 
 <!-- team -->
-<div class="team py-5" id="team">
+<div class="vine py-5" id="team">
 	<div class="container py-lg-3">
         <h3 class="heading mb-sm-5 mb-4 text-center"> Our Vine</h3>
         <div class="container">
@@ -23,12 +23,12 @@
                   </h4>
                 </div>
                 <div id="collapse1" class="panel-collapse collapse in">
-                    <p>&nbsp;</p>
                     <div class="row team-bottom text-center">
-                        <div class="col-lg-3 col-sm-6 team-grid">
+
+                        <div class="bottle col-lg-3 col-sm-6">
                             <img src="{% static 'images/redbottle.jpg' %}" class="img-fluid" alt="">
                         </div>
-                        <div class="col-lg-3 col-sm-6 team-grid">
+                        <div class="bottle col-lg-3 col-sm-6">
                             <div class="caption">
                                 <div class="team-text">
                                     <h4>Leo Millot</h4>
@@ -44,10 +44,11 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6 team-grid mt-sm-0 mt-5">
+
+                        <div class="bottle col-lg-3 col-sm-6">
                             <img src="{% static 'images/redbottle.jpg' %}" class="img-fluid" alt="">
                         </div>
-                        <div class="col-lg-3 col-sm-6 team-grid mt-sm-0 mt-5">
+                        <div class="bottle col-lg-3 col-sm-6">
                             <div class="caption">
                                 <div class="team-text">
                                     <h4>Barrique</h4>
@@ -63,8 +64,48 @@
                                 </ul>
                             </div>
                         </div>
+
+                        <div class="bottle col-lg-3 col-sm-6">
+                            <img src="{% static 'images/redbottle.jpg' %}" class="img-fluid" alt="">
+                        </div>
+                        <div class="bottle col-lg-3 col-sm-6">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Marechal Foch</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    Ut enim ad minim quis nostrud exerci sed do eiusmod tempor incididunt ut labore et dolore magna aliqua nostrud exerci sed.
+                                </ul>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not available">
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bottle col-lg-3 col-sm-6">
+                            <img src="{% static 'images/redbottle.jpg' %}" class="img-fluid" alt="">
+                        </div>
+                        <div class="bottle col-lg-3 col-sm-6">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Syrah</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    Ut enim ad minim quis nostrud exerci sed do eiusmod tempor incididunt ut labore et dolore magna aliqua nostrud exerci sed.
+                                </ul>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not available">
+                                </ul>
+                            </div>
+                        </div>
+
                     </div>
-                    <p>&nbsp;</p>
                 </div>
               </div>
               <div class="panel panel-default">
@@ -75,12 +116,18 @@
                 </div>
                 <div id="collapse2" class="panel-collapse collapse">
                     <div class="row team-bottom text-center">
-                        <div class="col-lg-12 col-sm-12 team-grid">
+
+                        <div class="bottle col-lg-3 col-sm-6">
                             <img src="{% static 'images/whitebottle.jpg' %}" class="img-fluid" alt="">
+                        </div>
+                        <div class="bottle col-lg-3 col-sm-6">
                             <div class="caption">
                                 <div class="team-text">
                                     <h4>Seval blanc</h4>
                                 </div>
+                                <ul class="mt-2">
+                                    Ut enim ad minim quis nostrud exerci sed do eiusmod tempor incididunt ut labore et dolore magna aliqua nostrud exerci sed.
+                                </ul>
                                 <ul class="mt-2">
                                     XX CHF
                                 </ul>
@@ -89,6 +136,27 @@
                                 </ul>
                             </div>
                         </div>
+
+                        <div class="bottle col-lg-3 col-sm-6">
+                            <img src="{% static 'images/whitebottle.jpg' %}" class="img-fluid" alt="">
+                        </div>
+                        <div class="bottle col-lg-3 col-sm-6">
+                            <div class="caption">
+                                <div class="team-text">
+                                    <h4>Chardonay</h4>
+                                </div>
+                                <ul class="mt-2">
+                                    Ut enim ad minim quis nostrud exerci sed do eiusmod tempor incididunt ut labore et dolore magna aliqua nostrud exerci sed.
+                                </ul>
+                                <ul class="mt-2">
+                                    XX CHF
+                                </ul>
+                                <ul class="mt-2">
+                                    Availability : <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="available">
+                                </ul>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
               </div>
@@ -188,12 +256,43 @@
           </div>
               
     </div>
+
+
+
+<!-- Vine order -->
+<div class="order py-md-2">
+	<div class="container py-md-4 py-5">
+		<div class="row">
+			<div class="col-md-12">
+				<h4 class="abt-text text-capitalize"> Download our Vine Order Formular !!!! <h4>
+            </div>
+
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<a href="{% static 'images/vache1.jpg' %}" class="btn btn-secondary px-4 py-2 btn-sm" download>Download Order</a>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+</div>
+<!-- // Vine order -->
+
+<div class="vinepartner py-md-2">
+    <div class="container">
+        <h2>Our Vine partner</h2>
+        <section class="customer-logos slider" style="padding-top: 10px; padding-bottom: 10px;">
+        <div class="slide"><img src="{% static 'images/s1.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
+        <div class="slide"><img src="{% static 'images/s2.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
+        <div class="slide"><img src="{% static 'images/s3.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
+        <div class="slide"><img src="{% static 'images/5.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
+        <div class="slide"><img src="{% static 'images/cubi.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
+        <div class="slide"><img src="{% static 'images/rosebottle.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
+        <div class="slide"><img src="{% static 'images/te1.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
+        </section>
+    </div>
 </div>
 
 
-		
-
-<!-- //team -->
-
+</div>
 
 {% endblock %}

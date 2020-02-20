@@ -13,8 +13,15 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.contrib import messages
+from django.http import FileResponse, Http404
+# Manage X_Frame
+from django.views.decorators.clickjacking import xframe_options_deny
+from django.views.decorators.clickjacking import xframe_options_sameorigin
+from django.views.decorators.clickjacking import xframe_options_exempt
+from django.utils.decorators import method_decorator
 
-from .models import SiteImage, SiteText, ListModel
+
+from .models import SiteImage, SiteText, ListModel, PdfModel
 from .forms import ImageForm, TextForm
 
 logger = logging.getLogger(__name__)
@@ -283,6 +290,38 @@ class CarouView(View):
     def get(self, request):
         return render(request, self.template_name)
 
+import inspect
+
+def decorate(func):
+    # See explanation below
+    lines = inspect.stack(context=2)[1].code_context
+    decorated = any(line.startswith('@') for line in lines)
+
+    print(func.__name__, 'was decorated with "@decorate":', decorated)
+    return func
+
+@xframe_options_sameorigin
+@xframe_options_exempt
+def NewsView(request):
+    """
+        Class to display the news in pdf format
+    """
+    template_name = 'sunneberg/news.html'
+    mvp = PdfModel.objects.filter(pdf_name=settings.MVP_NEWS)
+    first = PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_FIRST)
+    second = PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_SECOND)
+    third = PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_THIRD)
+    fourth = PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_FOURTH)
+    print(mvp[0])
+    print(mvp[0].pdf_file.url)
+
+    return render(request, template_name, {'mvp': mvp[0],
+                                            'first': first[0],
+                                            'second': second[0],
+                                            'third': third[0],
+                                            'fourth': fourth[0],
+                                            })
+
 
 class BasicInsert(View):
     """
@@ -378,6 +417,45 @@ class BasicInsert(View):
         if not ListModel.objects.filter(list_name=settings.NEWSLETTER_USER_LIST):
             my_insert = ListModel(list_name=settings.NEWSLETTER_USER_LIST,
                                   list_content=[])
+            print(my_insert)
+            my_insert.save()
+
+        # Pdf Insert
+        if not PdfModel.objects.filter(pdf_name=settings.MVP_NEWS):
+            my_insert = PdfModel(pdf_name=settings.MVP_NEWS,
+                                  pdf_file="news1.pdf",
+                                  pdf_title="Feb 2020 - New arrival")
+            print(my_insert)
+            my_insert.save()
+        
+        
+        if not PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_FIRST):
+            my_insert = PdfModel(pdf_name=settings.NEWS_LIST_FIRST,
+                                  pdf_file="news2.pdf",
+                                  pdf_title="Dec 2019 - Merry Xmas")
+            print(my_insert)
+            my_insert.save()
+        
+        
+        if not PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_SECOND):
+            my_insert = PdfModel(pdf_name=settings.NEWS_LIST_SECOND,
+                                  pdf_file="news3.pdf",
+                                  pdf_title="Oct 2019 - Apple time")
+            print(my_insert)
+            my_insert.save()
+
+            
+        if not PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_THIRD):
+            my_insert = PdfModel(pdf_name=settings.NEWS_LIST_THIRD,
+                                  pdf_file="news4.pdf",
+                                  pdf_title="August 2019 - For sunny days")
+            print(my_insert)
+            my_insert.save()
+
+        if not PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_FOURTH):
+            my_insert = PdfModel(pdf_name=settings.NEWS_LIST_FOURTH,
+                                  pdf_file="news5.pdf",
+                                  pdf_title="April 2019 - Easter")
             print(my_insert)
             my_insert.save()
 

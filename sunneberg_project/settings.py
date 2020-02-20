@@ -196,6 +196,14 @@ MEAT_LIST_NAME = "meat"
 
 NEWSLETTER_USER_LIST = "newslist"
 
+MVP_NEWS = "mvp_news"
+NEWS_LIST_FIRST = "first_in_news_list"
+NEWS_LIST_SECOND = "second_in_news_list"
+NEWS_LIST_THIRD = "third_in_news_list"
+NEWS_LIST_FOURTH = "fourth_in_news_list"
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
+#Temporar
+X_FRAME_OPTIONS = 'SAMEORIGIN'

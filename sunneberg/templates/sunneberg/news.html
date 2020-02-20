@@ -1,0 +1,39 @@
+{% extends 'sunneberg/base.html' %}
+{% block news %}active{% endblock %}
+{% block body %}
+{% load static %}
+
+<section class="contact py-5">
+	<div class="container py-sm-3">
+        <h3 class="heading mb-sm-5 mb-4 text-center"> Last news</h3>
+		<div>
+            <h2>{{mvp.pdf_title}}</h2>
+            <embed src="{{mvp.pdf_file.url}}" width="100%" height="600px" />
+        </div>
+    </div>
+</section>
+
+<section class="contact py-5" style="background-color: rgb(236,196,111)">
+	<div class="container py-sm-3">
+		<h3 class="heading mb-sm-5 mb-4 text-center"> Older news</h3>
+		<div>
+            <ul>
+                <li>
+                    <p><a href="{{first.pdf_file.url}}" class="btn btn-secondary" style="width: 100%">{{first.pdf_title}}</a></p>
+                </li>
+                <li>
+                    <p>&nbsp;<a href="{{second.pdf_file.url}}" class="btn btn-secondary" style="width: 100%">{{second.pdf_title}}</a></p>
+                </li>
+                <li>
+                    <p>&nbsp;<a href="{{third.pdf_file.url}}" class="btn btn-secondary" style="width: 100%">{{third.pdf_title}}</a></p>
+                </li>
+                <li>
+                    <p>&nbsp;<a href="{{fourth.pdf_file.url}}" class="btn btn-secondary" style="width: 100%">{{fourth.pdf_title}}</a></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

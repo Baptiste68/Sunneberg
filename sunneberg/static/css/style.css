@@ -1237,7 +1237,7 @@ a.move-top {
 		letter-spacing: 2px;
 	}
 	.inner-banner {
-		min-height: 200px;
+		min-height: 100px;
 	}
 }
 
@@ -1607,3 +1607,90 @@ a.move-top {
 }
 
 /*-- //Responsive design --*/
+
+.order {
+	text-align: center;
+	background-color:rgb(174,0,74);
+}
+
+/*-- Admin panel --*/
+#txt_overlay {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+   }
+
+#txt_overlay p {
+    color: #fff;
+    font-size: 30px;
+    line-height: 1.5em;
+    text-shadow: 2px 2px 2px #000;
+    text-align: center;
+   }
+/*-- //Admin panel --*/
+
+/*-- Apple --*/
+.apple {
+	/*https://pixabay.com/photos/plantation-sunset-nature-plants-4452538/*/
+	background-image: linear-gradient(180deg, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%),url('../images/field.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.apple .container h3, .apple .container h2, .apple .container .row p {
+	color:white;
+}
+
+/*-- // Apple --*/
+
+/*-- Vine --*/
+.vine {
+	/* https://unsplash.com/photos/tjkNAG4rYz0 */
+	background-image: linear-gradient(180deg, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%),url('../images/vigne.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.vine .container h3, .vine .container h2, .vine .container p {
+	color:white;
+}
+
+.vine .bottle {
+	margin-top: 20px;
+}
+
+.vine .panel-collapse{
+	padding: 10px;
+}
+
+.vinepartner {
+	margin-top: 30px; 
+	margin-bottom: 30px;
+	background-color: rgba(0, 0, 0, .3);
+}
+
+/*-- // Vine --*/
+
+/*-- Aboutus --*/
+
+.about {
+	/*https://pixabay.com/illustrations/background-fantasy-landscape-tree-3607469/*/
+	background-image:linear-gradient(180deg, rgba(0,0,0,0.2) 0%,rgba(0,0,0,.2) 100%),url('../images/aboutusimg.jpg');
+	background-size: cover;
+}
+
+.about .container {
+	text-shadow: 0 1px 0 black;
+}
+
+.projects {
+	/* https://pixabay.com/photos/tractor-old-antique-abandoned-371250/ */
+	background-image:linear-gradient(180deg, rgba(0,0,0,0.2) 0%,rgba(0,0,0,.2) 100%),url('../images/projects.jpg');
+	background-size: cover;
+}
+
+/*-- // Aboutus --*/
+

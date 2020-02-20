@@ -7,7 +7,7 @@
 {% block body %}
 
 <!-- cow pix -->
-<section class="about py-5" id="about">
+<section class="farming py-5" id="about">
 	<div class="container py-lg-5 py-sm-3">
 		<h3 class="heading mb-sm-5 mb-4 text-center"> Pastoral Farming</h3>
 		<h2><center>Find information about our farming and meat</center></h2>
@@ -59,9 +59,9 @@
 					{% for i in meat_list.list_content %}
 
 						<li class="list-group-item d-flex justify-content-between align-items-center">
-						{{i}}
+						<p>{{i}}</p>
 						</li>
-						
+
 					{% endfor %}
 			  	</ul>
 			</div>
@@ -70,5 +70,36 @@
 	</div>
 </div>
 <!-- // Meat stock -->
+
+<!-- Meat order -->
+<div class="order py-md-2">
+	<div class="container py-md-4 py-5">
+		<div class="row">
+			<div class="col-md-12">
+				<h4 class="abt-text text-capitalize"> Download our Meat Order Formular !!!! <h4>
+            </div>
+
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<a href="{% static 'images/vache1.jpg' %}" class="btn btn-secondary px-4 py-2 btn-sm" download>Download Order</a>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+</div>
+<!-- // Meat order -->
+
+<div class="container py-md-2" style="margin-top: 30px; margin-bottom: 30px;">
+	<h2>Our Meat partner</h2>
+	<section class="customer-logos slider" style="padding-top: 10px; padding-bottom: 10px;">
+	  <div class="slide"><img src="{% static 'images/s1.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
+	  <div class="slide"><img src="{% static 'images/s2.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
+	  <div class="slide"><img src="{% static 'images/s3.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
+	  <div class="slide"><img src="{% static 'images/5.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
+	  <div class="slide"><img src="{% static 'images/cubi.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
+	  <div class="slide"><img src="{% static 'images/rosebottle.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
+	  <div class="slide"><img src="{% static 'images/te1.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
+	</section>
+  </div>
 
 {% endblock %}

@@ -7,7 +7,7 @@
 {% block body %}
 
 <!-- cow pix -->
-<section class="about py-5" id="about">
+<section class="apple py-5" id="about">
 	<div class="container py-lg-5 py-sm-3">
 		<h3 class="heading mb-sm-5 mb-4 text-center"> Apple juice</h3>
 		<h2 style="text-align: center;">Find information about our apple juice</h2>
@@ -122,5 +122,32 @@
 	</div>
 </div>
 <!-- //Appel juice -->
+
+<!-- Apple order -->
+<div class="order py-md-2">
+	<div class="container py-md-4 py-5">
+		<div class="row">
+			<div class="col-md-12">
+				<h4 class="abt-text text-capitalize"> Download our Apple Order Formular !!!! <h4>
+            </div>
+
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<a href="{% static 'images/vache1.jpg' %}" class="btn btn-secondary px-4 py-2 btn-sm" download>Download Order</a>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+</div>
+<!-- // Apple order -->
+
+<div class="container py-md-2" style="margin-top: 30px; margin-bottom: 30px;">
+  <h2>Our Apple partner</h2>
+  <section style="padding-top: 10px; padding-bottom: 10px;">
+    <div class="col-xs-4"><img src="{% static 'images/s1.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"> <p>pwoeiur wpoiut writui iwerut</p> </div>
+    <div class="col-xs-4"><img src="{% static 'images/s2.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"> <p>pwoeiur wpoiut writui iwerut</p></div class="col-md-4">
+    <div class="col-xs-4"><img src="{% static 'images/s3.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"> <p>pwoeiur wpoiut writui iwerut</p></div class="col-md-4">
+  </section>
+</div>
 
 {% endblock %}

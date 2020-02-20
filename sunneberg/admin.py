@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import SiteImage, SiteText, ListModel
+from .models import SiteImage, SiteText, ListModel, PdfModel
 
 #admin.site.register(Site)
 class SiteAdmin(admin.ModelAdmin):
@@ -12,3 +12,4 @@ class SiteAdmin(admin.ModelAdmin):
 admin.site.register(SiteImage, SiteAdmin)
 admin.site.register(SiteText)
 admin.site.register(ListModel)
+admin.site.register(PdfModel)

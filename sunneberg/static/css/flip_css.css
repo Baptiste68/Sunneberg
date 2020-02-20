@@ -76,18 +76,4 @@
     position: relative;
   }
 
-  #txt_overlay {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-   }
-
-   #txt_overlay p {
-    color: #fff;
-    font-size: 30px;
-    line-height: 1.5em;
-    text-shadow: 2px 2px 2px #000;
-    text-align: center;
-   }
+  

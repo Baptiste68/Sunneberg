@@ -18,7 +18,7 @@ class SiteText(models.Model):
 
     def __str__(self):
         return self.txt_name
-
+ 
 class ListModel(models.Model):
     list_name = models.CharField(max_length=200)
     list_content = ArrayField(
@@ -29,3 +29,11 @@ class ListModel(models.Model):
 
     def __str__(self):
         return self.list_name
+
+class PdfModel(models.Model):
+    pdf_name = models.CharField(max_length=200)
+    pdf_file = models.FileField()
+    pdf_title = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.pdf_name 

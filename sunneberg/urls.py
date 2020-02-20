@@ -5,7 +5,6 @@ from django.urls import path
 
 from . import views
 
-
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     path('aboutus/', views.AboutusView.as_view(), name='aboutus'),
@@ -22,4 +21,5 @@ urlpatterns = [
     path(r'editlist/?', views.EditListView.as_view(), name='editlist'),
     path(r'contact/', views.ContactView.as_view(), name='contact'),
     path(r'testcarou/', views.CarouView.as_view(), name='testcarou'),
+    path(r'news/', views.NewsView, name='news'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
