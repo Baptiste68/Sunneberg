@@ -1,6 +1,7 @@
 import requests
 import json
 import logging
+import random
 
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
@@ -20,9 +21,10 @@ from django.views.decorators.clickjacking import xframe_options_sameorigin
 from django.views.decorators.clickjacking import xframe_options_exempt
 from django.utils.decorators import method_decorator
 
+from django.core.mail import send_mail
 
-from .models import SiteImage, SiteText, ListModel, PdfModel
-from .forms import ImageForm, TextForm
+from .models import SiteImage, SiteText, ListModel, PdfModel, UnsubModel
+from .forms import ImageForm, TextForm, ConnexionForm
 
 logger = logging.getLogger(__name__)
 
@@ -128,60 +130,96 @@ class AppleView(View):
     def get(self, request):
         return render(request, self.template_name)
 
+def logmeout(request):
+    print("Here")
+    logout(request)
+    return redirect('sunneberg:myadmin')
 
 class MyadminView(View):
     """
-        Class view for admin panel
+        Class view for admin panel incl. login
     """
 
     template_name = 'sunneberg/myadmin.html'
 
-    def get(self, request):
-        #get all editable elements
-        farm = SiteImage.objects.filter(img_name=settings.FARM)
-        farm_txt = SiteText.objects.filter(txt_name=settings.FARM_TXT)
-        cows = SiteImage.objects.filter(img_name=settings.COWS)
-        cows_txt = SiteText.objects.filter(txt_name=settings.COWS_TXT)
-        apple = SiteImage.objects.filter(img_name=settings.APPLE)
-        apple_txt = SiteText.objects.filter(txt_name=settings.APPLE_TXT)
-        grappes = SiteImage.objects.filter(img_name=settings.GRAPPES)
-        grappes_txt = SiteText.objects.filter(txt_name=settings.GRAPPES_TXT)
-        meat = ListModel.objects.filter(list_name=settings.MEAT_LIST_NAME)
-        pfarminghome = SiteImage.objects.filter(
-            img_name=settings.COWS_VIGNETTE)
-        grappeshome = SiteImage.objects.filter(
-            img_name=settings.GRAPPES_VIGNETTE)
-        applehome = SiteImage.objects.filter(img_name=settings.APPLE_VIGNETTE)
-        newslist = ListModel.objects.filter(
-            list_name=settings.NEWSLETTER_USER_LIST)
+    #get all editable elements
+    farm = SiteImage.objects.filter(img_name=settings.FARM)
+    farm_txt = SiteText.objects.filter(txt_name=settings.FARM_TXT)
+    cows = SiteImage.objects.filter(img_name=settings.COWS)
+    cows_txt = SiteText.objects.filter(txt_name=settings.COWS_TXT)
+    apple = SiteImage.objects.filter(img_name=settings.APPLE)
+    apple_txt = SiteText.objects.filter(txt_name=settings.APPLE_TXT)
+    grappes = SiteImage.objects.filter(img_name=settings.GRAPPES)
+    grappes_txt = SiteText.objects.filter(txt_name=settings.GRAPPES_TXT)
+    meat = ListModel.objects.filter(list_name=settings.MEAT_LIST_NAME)
+    pfarminghome = SiteImage.objects.filter(
+        img_name=settings.COWS_VIGNETTE)
+    grappeshome = SiteImage.objects.filter(
+        img_name=settings.GRAPPES_VIGNETTE)
+    applehome = SiteImage.objects.filter(img_name=settings.APPLE_VIGNETTE)
+    newslist = ListModel.objects.filter(
+        list_name=settings.NEWSLETTER_USER_LIST)
 
+    def get(self, request):
         #Deleting element from meat list
         element = request.GET.get('element', '')
-        if element in meat[0].list_content and element is not "":
-            temp = meat[0].list_content
+        if element in self.meat[0].list_content and element is not "":
+            temp = self.meat[0].list_content
             temp.remove(element)
-            meat.update(list_content=temp)
+            self.meat.update(list_content=temp)
 
         #Adding element in meat list
         new_element = request.GET.get('new_element', '')
-        if new_element not in meat[0].list_content and new_element is not "":
-            temp = meat[0].list_content
+        if new_element not in self.meat[0].list_content and new_element is not "":
+            temp = self.meat[0].list_content
             temp.append(new_element)
-            meat.update(list_content=temp)
+            self.meat.update(list_content=temp)
 
-        return render(request, self.template_name, {'cows': cows[0],
-                                                    'farm': farm[0],
-                                                    'apple': apple[0],
-                                                    'grappes': grappes[0],
-                                                    'farm_txt': farm_txt[0],
-                                                    'cows_txt': cows_txt[0],
-                                                    'apple_txt': apple_txt[0],
-                                                    'grappes_txt': grappes_txt[0],
-                                                    'meat': meat,
-                                                    'meat_list': meat[0],
-                                                    'pfarminghome': pfarminghome[0],
-                                                    'grappeshome': grappeshome[0],
-                                                    'applehome': applehome[0]})
+        form = ConnexionForm(request.POST)
+
+        return render(request, self.template_name, {'cows': self.cows[0],
+                                                    'farm': self.farm[0],
+                                                    'apple': self.apple[0],
+                                                    'grappes': self.grappes[0],
+                                                    'farm_txt': self.farm_txt[0],
+                                                    'cows_txt': self.cows_txt[0],
+                                                    'apple_txt': self.apple_txt[0],
+                                                    'grappes_txt': self.grappes_txt[0],
+                                                    'meat': self.meat,
+                                                    'meat_list': self.meat[0],
+                                                    'pfarminghome': self.pfarminghome[0],
+                                                    'grappeshome': self.grappeshome[0],
+                                                    'applehome': self.applehome[0],
+                                                    'form': form})
+
+    def post(self, request):
+        error = False
+        form = ConnexionForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            # Nous vérifions si les données sont correctes
+            user = authenticate(username=username, password=password)
+            if user:  # Si l'objet renvoyé n'est pas None
+                login(request, user)  # nous connectons l'utilisateur
+            else:  # sinon une erreur sera affichée
+                error = True
+
+        return render(request, self.template_name, {'cows': self.cows[0],
+                                                    'farm': self.farm[0],
+                                                    'apple': self.apple[0],
+                                                    'grappes': self.grappes[0],
+                                                    'farm_txt': self.farm_txt[0],
+                                                    'cows_txt': self.cows_txt[0],
+                                                    'apple_txt': self.apple_txt[0],
+                                                    'grappes_txt': self.grappes_txt[0],
+                                                    'meat': self.meat,
+                                                    'meat_list': self.meat[0],
+                                                    'pfarminghome': self.pfarminghome[0],
+                                                    'grappeshome': self.grappeshome[0],
+                                                    'applehome': self.applehome[0],
+                                                    'form': form,
+                                                    'error': error})
 
 
 def edit_thing(request, img_name):
@@ -290,15 +328,6 @@ class CarouView(View):
     def get(self, request):
         return render(request, self.template_name)
 
-import inspect
-
-def decorate(func):
-    # See explanation below
-    lines = inspect.stack(context=2)[1].code_context
-    decorated = any(line.startswith('@') for line in lines)
-
-    print(func.__name__, 'was decorated with "@decorate":', decorated)
-    return func
 
 @xframe_options_sameorigin
 @xframe_options_exempt
@@ -321,6 +350,51 @@ def NewsView(request):
                                             'third': third[0],
                                             'fourth': fourth[0],
                                             })
+
+
+class UnsubView(View):
+    """
+        Unsubscribe View
+    """
+    
+    template_name = 'sunneberg/unsubscribe.html'
+    newslist = ListModel.objects.filter(
+        list_name=settings.NEWSLETTER_USER_LIST)
+
+    def get(self, request):
+        return render(request, self.template_name)
+        
+    def post(self, request):
+        email = request.POST.get('email_un', '')
+        if email in self.newslist[0].list_content: 
+            if not UnsubModel.objects.filter(unsub_email=email):
+                my_insert = UnsubModel(unsub_email=email,
+                                    unsub_code=random.randrange(10000,99999),
+                                    unsub_duration = "2:20:10")
+                my_insert.save()
+                code = UnsubModel.objects.filter(unsub_email=email)[0].unsub_code
+                
+                try:
+                    send_mail(
+                        'Unsubscribe Sunnenberg NewsLetter',
+                        "Hello /n Please click to this link to end the unsubscription:/n http://127.0.0.1:8000/sunneberg/unsubconfirm /n "+
+                        "Your code is " + str(code),
+                        'from@example.com',
+                        [email],
+                        fail_silently=False,
+                    )
+                    messages.info(request, 'SUCCES: You should have received an email to confirm the deletion')
+                
+                except:
+                    UnsubModel.objects.filter(unsub_email=email).delete()
+                    messages.info(request, 'ERROR: while trying to send email')
+            else:
+                messages.info(request, 'ERROR: Your email is already in the deletion process...')
+        else:
+            messages.info(request, 'ERROR: Your email is not in the NewsLetter list...')
+
+        return render(request, self.template_name)
+
 
 
 class BasicInsert(View):

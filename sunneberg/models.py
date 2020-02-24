@@ -23,7 +23,7 @@ class ListModel(models.Model):
     list_name = models.CharField(max_length=200)
     list_content = ArrayField(
         ArrayField(
-            models.CharField(max_length=64, blank=True),
+            models.CharField(max_length=200, blank=True),
         ),
     )
 
@@ -37,3 +37,11 @@ class PdfModel(models.Model):
 
     def __str__(self):
         return self.pdf_name 
+
+class UnsubModel(models.Model):
+    unsub_email = models.CharField(max_length=200)
+    unsub_code = models.IntegerField()
+    unsub_duration = models.DurationField()
+
+    def __str__(self):
+        return self.unsub_email

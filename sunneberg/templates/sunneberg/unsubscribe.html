@@ -1,0 +1,34 @@
+{% extends "sunneberg/base.html" %}
+
+
+
+{% block body %}
+{% load static %}
+
+<section>
+    <div class="newsletter_right_w3 py-5">
+        <div class="container py-lg-3">
+        <h3 class="heading mb-4 text-center">Unsubscribe to the Newsletter</h3>
+            <p class="sub-tittle text-center mb-sm-5 mb-4">Sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+            <div class="n-right-w3ls">
+                <form action="#" method="post" class="newsletter">
+                    {% csrf_token %}
+                    <input class="email" type="email" placeholder="Enter your email id..." required="" name="email_un">
+                    <button class="form-control btn" value="" style="height: 100%">Unsubscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if messages %}
+{% for message in messages %}
+ {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+{% endfor %}
+
+{% endif %}
+
+
+{% endblock %}
