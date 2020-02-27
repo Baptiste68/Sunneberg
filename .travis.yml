@@ -12,8 +12,9 @@ before_script:
 
 env: DJANGO_SETTINGS_MODULE="sunneberg_project.settings.travis"
 
+
 services:
   - postgresql
 
 script:
-  - ./manage.py test
+  - python ./manage.py test
