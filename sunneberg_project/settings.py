@@ -94,16 +94,17 @@ WSGI_APPLICATION = 'sunneberg_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS': {
-            'options': '-c search_path=django,sbschema,testsunnebergdb'
+            'options': '-c search_path=django,sbschema,public'
         },
-        #'TEST': {
-        #    'NAME': 'test_fooddb',
-        #    'options': '-c search_path=django,testfooddb'
-        #},
+        'TEST': {
+            'NAME': 'test_sunneberg',
+            'options': '-c search_path=django,public'
+        },
         'USER': 'postgres',
         'NAME': 'sunneberg',
         'PASSWORD': 'root',

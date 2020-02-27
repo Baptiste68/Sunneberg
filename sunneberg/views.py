@@ -20,6 +20,7 @@ from django.views.decorators.clickjacking import xframe_options_deny
 from django.views.decorators.clickjacking import xframe_options_sameorigin
 from django.views.decorators.clickjacking import xframe_options_exempt
 from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 from django.core.mail import send_mail
 
@@ -49,45 +50,107 @@ class IndexView(View):
         list_name=settings.NEWSLETTER_USER_LIST)
 
     def get(self, request):
-        return render(request, self.template_name, {'cows': self.cows[0],
-                                                    'farm': self.farm[0],
-                                                    'apple': self.apple[0],
-                                                    'grappes': self.grappes[0],
-                                                    'farm_txt': self.farm_txt[0],
-                                                    'cows_txt': self.cows_txt[0],
-                                                    'apple_txt': self.apple_txt[0],
-                                                    'grappes_txt': self.grappes_txt[0],
-                                                    'pfarminghome': self.pfarminghome[0],
-                                                    'grappeshome': self.grappeshome[0],
-                                                    'applehome': self.applehome[0]})
+        try:
+            self.cows[0] is not ""
+            self.farm[0] is not ""
+            self.apple[0] is not ""
+            self.grappes[0] is not ""
+            self.farm_txt[0] is not ""
+            self.cows_txt[0] is not ""
+            self.apple_txt[0] is not ""
+            self.grappes_txt[0] is not ""
+            self.pfarminghome[0] is not ""
+            self.grappeshome[0] is not ""
+            self.applehome[0] is not ""
+
+            return render(request, self.template_name, {'cows': self.cows[0],
+                                                        'farm': self.farm[0],
+                                                        'apple': self.apple[0],
+                                                        'grappes': self.grappes[0],
+                                                        'farm_txt': self.farm_txt[0],
+                                                        'cows_txt': self.cows_txt[0],
+                                                        'apple_txt': self.apple_txt[0],
+                                                        'grappes_txt': self.grappes_txt[0],
+                                                        'pfarminghome': self.pfarminghome[0],
+                                                        'grappeshome': self.grappeshome[0],
+                                                        'applehome': self.applehome[0]})
+
+        except:
+            return render(request, self.template_name, {'cows': "",
+                                                        'farm': "",
+                                                        'apple': "",
+                                                        'grappes': "",
+                                                        'farm_txt': "",
+                                                        'cows_txt': "",
+                                                        'apple_txt': "",
+                                                        'grappes_txt': "",
+                                                        'pfarminghome': "",
+                                                        'grappeshome': "",
+                                                        'applehome': ""})
 
     def post(self, request):
-
         #Adding user to Newsletter list
         email = request.POST.get('email', '')
-        if email not in self.newslist[0].list_content and email is not "":
-            temp = self.newslist[0].list_content
-            temp.append(email)
+        try:
+            self.newslist[0] is not ""
+            if email not in self.newslist[0].list_content and email is not "":
+                temp = self.newslist[0].list_content
+                temp.append(email)
+                try:
+                    self.newslist.update(list_content=temp)
+                    messages.info(
+                        request, 'Your email has been added to the newsletter difusion list!')
+                except:
+                    messages.info(request, 'Your email could not be added!')
+            else:
+                messages.info(
+                    request, 'Your email is already in the newsletter difusion list...')
+        
+        except:
             try:
                 self.newslist.update(list_content=temp)
-                messages.info(request, 'Your email has been added to the newsletter difusion list!')
+                messages.info(
+                    request, 'Your email has been added to the newsletter difusion list!')
             except:
                 messages.info(request, 'Your email could not be added!')
-        else:
-            messages.info(request, 'Your email is already in the newsletter difusion list...')
 
+        try:
+            self.cows[0] is not ""
+            self.farm[0] is not ""
+            self.apple[0] is not ""
+            self.grappes[0] is not ""
+            self.farm_txt[0] is not ""
+            self.cows_txt[0] is not ""
+            self.apple_txt[0] is not ""
+            self.grappes_txt[0] is not ""
+            self.pfarminghome[0] is not ""
+            self.grappeshome[0] is not ""
+            self.applehome[0] is not ""
 
-        return render(request, self.template_name, {'cows': self.cows[0],
-                                                    'farm': self.farm[0],
-                                                    'apple': self.apple[0],
-                                                    'grappes': self.grappes[0],
-                                                    'farm_txt': self.farm_txt[0],
-                                                    'cows_txt': self.cows_txt[0],
-                                                    'apple_txt': self.apple_txt[0],
-                                                    'grappes_txt': self.grappes_txt[0],
-                                                    'pfarminghome': self.pfarminghome[0],
-                                                    'grappeshome': self.grappeshome[0],
-                                                    'applehome': self.applehome[0]})
+            return render(request, self.template_name, {'cows': self.cows[0],
+                                                        'farm': self.farm[0],
+                                                        'apple': self.apple[0],
+                                                        'grappes': self.grappes[0],
+                                                        'farm_txt': self.farm_txt[0],
+                                                        'cows_txt': self.cows_txt[0],
+                                                        'apple_txt': self.apple_txt[0],
+                                                        'grappes_txt': self.grappes_txt[0],
+                                                        'pfarminghome': self.pfarminghome[0],
+                                                        'grappeshome': self.grappeshome[0],
+                                                        'applehome': self.applehome[0]})
+
+        except:
+            return render(request, self.template_name, {'cows': "",
+                                                        'farm': "",
+                                                        'apple': "",
+                                                        'grappes': "",
+                                                        'farm_txt': "",
+                                                        'cows_txt': "",
+                                                        'apple_txt': "",
+                                                        'grappes_txt': "",
+                                                        'pfarminghome': "",
+                                                        'grappeshome': "",
+                                                        'applehome': ""})
 
 
 class AboutusView(View):
@@ -108,7 +171,12 @@ class FarmingView(View):
 
     def get(self, request):
         meat = ListModel.objects.filter(list_name=settings.MEAT_LIST_NAME)
-        return render(request, self.template_name, {'meat_list': meat[0]})
+        try:
+            meat[0] is not ""
+            return render(request, self.template_name, {'meat_list': meat[0]})
+
+        except:
+            return render(request, self.template_name, {'meat_list': ""})
 
 
 class VineView(View):
@@ -130,10 +198,11 @@ class AppleView(View):
     def get(self, request):
         return render(request, self.template_name)
 
+
 def logmeout(request):
-    print("Here")
     logout(request)
     return redirect('sunneberg:myadmin')
+
 
 class MyadminView(View):
     """
@@ -161,36 +230,65 @@ class MyadminView(View):
         list_name=settings.NEWSLETTER_USER_LIST)
 
     def get(self, request):
-        #Deleting element from meat list
-        element = request.GET.get('element', '')
-        if element in self.meat[0].list_content and element is not "":
-            temp = self.meat[0].list_content
-            temp.remove(element)
-            self.meat.update(list_content=temp)
-
-        #Adding element in meat list
-        new_element = request.GET.get('new_element', '')
-        if new_element not in self.meat[0].list_content and new_element is not "":
-            temp = self.meat[0].list_content
-            temp.append(new_element)
-            self.meat.update(list_content=temp)
-
         form = ConnexionForm(request.POST)
+        try:
+            self.cows[0] is not ""
+            self.farm[0] is not ""
+            self.apple[0] is not ""
+            self.grappes[0] is not ""
+            self.farm_txt[0] is not ""
+            self.cows_txt[0] is not ""
+            self.apple_txt[0] is not ""
+            self.grappes_txt[0] is not ""
+            self.pfarminghome[0] is not ""
+            self.grappeshome[0] is not ""
+            self.applehome[0] is not ""
+            self.meat[0] is not ""
 
-        return render(request, self.template_name, {'cows': self.cows[0],
-                                                    'farm': self.farm[0],
-                                                    'apple': self.apple[0],
-                                                    'grappes': self.grappes[0],
-                                                    'farm_txt': self.farm_txt[0],
-                                                    'cows_txt': self.cows_txt[0],
-                                                    'apple_txt': self.apple_txt[0],
-                                                    'grappes_txt': self.grappes_txt[0],
-                                                    'meat': self.meat,
-                                                    'meat_list': self.meat[0],
-                                                    'pfarminghome': self.pfarminghome[0],
-                                                    'grappeshome': self.grappeshome[0],
-                                                    'applehome': self.applehome[0],
-                                                    'form': form})
+            #Deleting element from meat list
+            element = request.GET.get('element', '')
+            if element in self.meat[0].list_content and element is not "":
+                temp = self.meat[0].list_content
+                temp.remove(element)
+                self.meat.update(list_content=temp)
+
+            #Adding element in meat list
+            new_element = request.GET.get('new_element', '')
+            if new_element not in self.meat[0].list_content and new_element is not "":
+                temp = self.meat[0].list_content
+                temp.append(new_element)
+                self.meat.update(list_content=temp)
+
+            return render(request, self.template_name, {'cows': self.cows[0],
+                                                        'farm': self.farm[0],
+                                                        'apple': self.apple[0],
+                                                        'grappes': self.grappes[0],
+                                                        'farm_txt': self.farm_txt[0],
+                                                        'cows_txt': self.cows_txt[0],
+                                                        'apple_txt': self.apple_txt[0],
+                                                        'grappes_txt': self.grappes_txt[0],
+                                                        'meat': self.meat,
+                                                        'meat_list': self.meat[0],
+                                                        'pfarminghome': self.pfarminghome[0],
+                                                        'grappeshome': self.grappeshome[0],
+                                                        'applehome': self.applehome[0],
+                                                        'form': form})
+
+        except:
+            return render(request, self.template_name, {'cows': "",
+                                                        'farm': "",
+                                                        'apple': "",
+                                                        'grappes': "",
+                                                        'farm_txt': "",
+                                                        'cows_txt': "",
+                                                        'apple_txt': "",
+                                                        'grappes_txt': "",
+                                                        'pfarminghome': "",
+                                                        'grappeshome': "",
+                                                        'applehome': "",
+                                                        'meat': "",
+                                                        'meat_list': "",
+                                                        'form': form})
 
     def post(self, request):
         error = False
@@ -205,21 +303,52 @@ class MyadminView(View):
             else:  # sinon une erreur sera affichée
                 error = True
 
-        return render(request, self.template_name, {'cows': self.cows[0],
-                                                    'farm': self.farm[0],
-                                                    'apple': self.apple[0],
-                                                    'grappes': self.grappes[0],
-                                                    'farm_txt': self.farm_txt[0],
-                                                    'cows_txt': self.cows_txt[0],
-                                                    'apple_txt': self.apple_txt[0],
-                                                    'grappes_txt': self.grappes_txt[0],
-                                                    'meat': self.meat,
-                                                    'meat_list': self.meat[0],
-                                                    'pfarminghome': self.pfarminghome[0],
-                                                    'grappeshome': self.grappeshome[0],
-                                                    'applehome': self.applehome[0],
-                                                    'form': form,
-                                                    'error': error})
+        try:
+            self.cows[0] is not ""
+            self.farm[0] is not ""
+            self.apple[0] is not ""
+            self.grappes[0] is not ""
+            self.farm_txt[0] is not ""
+            self.cows_txt[0] is not ""
+            self.apple_txt[0] is not ""
+            self.grappes_txt[0] is not ""
+            self.pfarminghome[0] is not ""
+            self.grappeshome[0] is not ""
+            self.applehome[0] is not ""
+            self.meat[0] is not ""
+
+            return render(request, self.template_name, {'cows': self.cows[0],
+                                                        'farm': self.farm[0],
+                                                        'apple': self.apple[0],
+                                                        'grappes': self.grappes[0],
+                                                        'farm_txt': self.farm_txt[0],
+                                                        'cows_txt': self.cows_txt[0],
+                                                        'apple_txt': self.apple_txt[0],
+                                                        'grappes_txt': self.grappes_txt[0],
+                                                        'meat': self.meat,
+                                                        'meat_list': self.meat[0],
+                                                        'pfarminghome': self.pfarminghome[0],
+                                                        'grappeshome': self.grappeshome[0],
+                                                        'applehome': self.applehome[0],
+                                                        'form': form,
+                                                        'error': error})
+
+        except:
+            return render(request, self.template_name, {'cows': "",
+                                                        'farm': "",
+                                                        'apple': "",
+                                                        'grappes': "",
+                                                        'farm_txt': "",
+                                                        'cows_txt': "",
+                                                        'apple_txt': "",
+                                                        'grappes_txt': "",
+                                                        'pfarminghome': "",
+                                                        'grappeshome': "",
+                                                        'applehome': "",
+                                                        'meat': "",
+                                                        'meat_list': "",
+                                                        'form': form,
+                                                        'error': error})
 
 
 def edit_thing(request, img_name):
@@ -270,6 +399,7 @@ def edit_thing_txt(request, txt_name):
         'form': form,
     })
 
+
 class DisplayListView(View):
     """
         Class to display email in newsletter list
@@ -307,7 +437,7 @@ class EditListView(View):
             self.newslist.update(list_content=temp)
 
         return render(request, self.template_name, {'newslist': self.newslist[0]})
-    
+
 
 class ContactView(View):
     """
@@ -329,22 +459,24 @@ class CarouView(View):
         return render(request, self.template_name)
 
 
-@xframe_options_sameorigin
-@xframe_options_exempt
-def NewsView(request):
-    """
-        Class to display the news in pdf format
-    """
-    template_name = 'sunneberg/news.html'
-    mvp = PdfModel.objects.filter(pdf_name=settings.MVP_NEWS)
-    first = PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_FIRST)
-    second = PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_SECOND)
-    third = PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_THIRD)
-    fourth = PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_FOURTH)
-    print(mvp[0])
-    print(mvp[0].pdf_file.url)
+testing = method_decorator(xframe_options_exempt, name='dispatch')
 
-    return render(request, template_name, {'mvp': mvp[0],
+@testing
+class NewsView(View):
+    def get(self, request):
+        """
+            Class to display the news in pdf format
+        """
+        template_name = 'sunneberg/news.html'
+        mvp = PdfModel.objects.filter(pdf_name=settings.MVP_NEWS)
+        first = PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_FIRST)
+        second = PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_SECOND)
+        third = PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_THIRD)
+        fourth = PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_FOURTH)
+        print(mvp[0])
+        print(mvp[0].pdf_file.url)
+
+        return render(request, template_name, {'mvp': mvp[0],
                                             'first': first[0],
                                             'second': second[0],
                                             'third': third[0],
@@ -356,45 +488,49 @@ class UnsubView(View):
     """
         Unsubscribe View
     """
-    
+
     template_name = 'sunneberg/unsubscribe.html'
     newslist = ListModel.objects.filter(
         list_name=settings.NEWSLETTER_USER_LIST)
 
     def get(self, request):
         return render(request, self.template_name)
-        
+
     def post(self, request):
         email = request.POST.get('email_un', '')
-        if email in self.newslist[0].list_content: 
+        if email in self.newslist[0].list_content:
             if not UnsubModel.objects.filter(unsub_email=email):
                 my_insert = UnsubModel(unsub_email=email,
-                                    unsub_code=random.randrange(10000,99999),
-                                    unsub_duration = "2:20:10")
+                                       unsub_code=random.randrange(
+                                           10000, 99999),
+                                       unsub_duration="2:20:10")
                 my_insert.save()
-                code = UnsubModel.objects.filter(unsub_email=email)[0].unsub_code
-                
+                code = UnsubModel.objects.filter(
+                    unsub_email=email)[0].unsub_code
+
                 try:
                     send_mail(
                         'Unsubscribe Sunnenberg NewsLetter',
-                        "Hello /n Please click to this link to end the unsubscription:/n http://127.0.0.1:8000/sunneberg/unsubconfirm /n "+
+                        "Hello /n Please click to this link to end the unsubscription:/n http://127.0.0.1:8000/sunneberg/unsubconfirm /n " +
                         "Your code is " + str(code),
                         'from@example.com',
                         [email],
                         fail_silently=False,
                     )
-                    messages.info(request, 'SUCCES: You should have received an email to confirm the deletion')
-                
+                    messages.info(
+                        request, 'SUCCES: You should have received an email to confirm the deletion')
+
                 except:
                     UnsubModel.objects.filter(unsub_email=email).delete()
                     messages.info(request, 'ERROR: while trying to send email')
             else:
-                messages.info(request, 'ERROR: Your email is already in the deletion process...')
+                messages.info(
+                    request, 'ERROR: Your email is already in the deletion process...')
         else:
-            messages.info(request, 'ERROR: Your email is not in the NewsLetter list...')
+            messages.info(
+                request, 'ERROR: Your email is not in the NewsLetter list...')
 
         return render(request, self.template_name)
-
 
 
 class BasicInsert(View):
@@ -497,39 +633,36 @@ class BasicInsert(View):
         # Pdf Insert
         if not PdfModel.objects.filter(pdf_name=settings.MVP_NEWS):
             my_insert = PdfModel(pdf_name=settings.MVP_NEWS,
-                                  pdf_file="news1.pdf",
-                                  pdf_title="Feb 2020 - New arrival")
-            print(my_insert)
-            my_insert.save()
-        
-        
-        if not PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_FIRST):
-            my_insert = PdfModel(pdf_name=settings.NEWS_LIST_FIRST,
-                                  pdf_file="news2.pdf",
-                                  pdf_title="Dec 2019 - Merry Xmas")
-            print(my_insert)
-            my_insert.save()
-        
-        
-        if not PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_SECOND):
-            my_insert = PdfModel(pdf_name=settings.NEWS_LIST_SECOND,
-                                  pdf_file="news3.pdf",
-                                  pdf_title="Oct 2019 - Apple time")
+                                 pdf_file="news1.pdf",
+                                 pdf_title="Feb 2020 - New arrival")
             print(my_insert)
             my_insert.save()
 
-            
+        if not PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_FIRST):
+            my_insert = PdfModel(pdf_name=settings.NEWS_LIST_FIRST,
+                                 pdf_file="news2.pdf",
+                                 pdf_title="Dec 2019 - Merry Xmas")
+            print(my_insert)
+            my_insert.save()
+
+        if not PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_SECOND):
+            my_insert = PdfModel(pdf_name=settings.NEWS_LIST_SECOND,
+                                 pdf_file="news3.pdf",
+                                 pdf_title="Oct 2019 - Apple time")
+            print(my_insert)
+            my_insert.save()
+
         if not PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_THIRD):
             my_insert = PdfModel(pdf_name=settings.NEWS_LIST_THIRD,
-                                  pdf_file="news4.pdf",
-                                  pdf_title="August 2019 - For sunny days")
+                                 pdf_file="news4.pdf",
+                                 pdf_title="August 2019 - For sunny days")
             print(my_insert)
             my_insert.save()
 
         if not PdfModel.objects.filter(pdf_name=settings.NEWS_LIST_FOURTH):
             my_insert = PdfModel(pdf_name=settings.NEWS_LIST_FOURTH,
-                                  pdf_file="news5.pdf",
-                                  pdf_title="April 2019 - Easter")
+                                 pdf_file="news5.pdf",
+                                 pdf_title="April 2019 - Easter")
             print(my_insert)
             my_insert.save()
 

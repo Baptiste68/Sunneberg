@@ -2,6 +2,8 @@ from django.core.files.storage import FileSystemStorage
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.conf import settings
+from django.views.decorators.clickjacking import xframe_options_sameorigin
+from django.utils.decorators import method_decorator
 
 
 class SiteImage(models.Model):
