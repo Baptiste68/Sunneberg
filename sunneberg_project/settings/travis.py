@@ -2,11 +2,18 @@ from . import *
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'travis_ci_test',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': {
+            'options': '-c search_path=django,sbschema,public'
+        },
+        'TEST': {
+            'NAME': 'test_sunneberg',
+            'options': '-c search_path=django,public'
+        },
         'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    },
+        'NAME': 'sunneberg',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
