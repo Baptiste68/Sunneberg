@@ -25,25 +25,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'di!hq)&_99^=$11)objl@!9yn(rr=s@\
     jyqepc_0g32#@=o8qo4') # development key for the moment
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('ENV') == 'PRODUCTION':
-    DEBUG = False
-else:
-    DEBUG = True
+DEBUG = True
 
-
-if os.environ.get('ENV') == 'PRODUCTION':
-    
-    # Static files settings
-    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-
-    # Extra places for collectstatic to find static files.
-    STATICFILES_DIRS = (
-        os.path.join(PROJECT_ROOT, 'static'),
-    )
-
-ALLOWED_HOSTS = ['sunnenberg.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -141,12 +125,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-if os.environ.get('ENV') == 'PRODUCTION':
-        # ...
-        # Simplified static file serving.
-        # https://warehouse.python.org/project/whitenoise/
-        STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -176,7 +154,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'sunneberg/media')
 
 MEDIA_URL = '/sunneberg/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'sunneberg/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, '../sunneberg/media')
 
 FARM = "Farm_banner_img"
 FARM_TXT = "Farm_banner_txt"
@@ -202,9 +180,6 @@ NEWS_LIST_FIRST = "first_in_news_list"
 NEWS_LIST_SECOND = "second_in_news_list"
 NEWS_LIST_THIRD = "third_in_news_list"
 NEWS_LIST_FOURTH = "fourth_in_news_list"
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
 
 #Temporar
 X_FRAME_OPTIONS = 'SAMEORIGIN'
