@@ -365,7 +365,7 @@ def edit_thing(request, img_name):
         if form.is_valid():
             # save the new data
             form.save()
-            return redirect('sunneberg/myadmin01.html', img_name=thing.img_name)
+            return redirect('/sunneberg/myadmin01')
     # otherwise just create the form
     else:
         form = form_class(instance=thing)
