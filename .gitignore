@@ -1,2 +1,4 @@
+sunneberg_project/settings/production.py
 __pycache__
 env/
+sunneberg_project/staticfiles/
