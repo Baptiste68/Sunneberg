@@ -4,11 +4,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS': {
-            'options': '-c search_path=django,fooddb,testfooddb'
+            'options': '-c search_path=django,sunneberg,testsunneberg'
         },
         'TEST': {
-            'NAME': 'test_fooddb',
-            'options': '-c search_path=django,testfooddb'
+            'NAME': 'test_sunneberg',
+            'options': '-c search_path=django,testsunneberg'
         },
         'USER': 'postgres',
         'NAME': 'postgres',
