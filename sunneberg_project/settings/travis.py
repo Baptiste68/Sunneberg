@@ -11,7 +11,7 @@ DATABASES = {
             'options': '-c search_path=django,testsunneberg'
         },
         'USER': 'postgres',
-        'NAME': 'postgres',
+        'NAME': 'sunneberg',
         'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '5432',
