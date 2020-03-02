@@ -2,11 +2,18 @@ from . import *
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sunneberg',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': {
+            'options': '-c search_path=django,fooddb,testfooddb'
+        },
+        'TEST': {
+            'NAME': 'test_fooddb',
+            'options': '-c search_path=django,testfooddb'
+        },
         'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    },
+        'NAME': 'postgres',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
