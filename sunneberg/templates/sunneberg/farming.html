@@ -21,16 +21,16 @@
 			-->
 			<div class="col-lg-1"></div>
 			<div class="col-lg-10">
-				<img src="{% static 'images/vache1.jpg' %}" alt="cow" style="float:left;width:50%;height:100%;object-fit:cover;">
-				<img src="{% static 'images/vache2.jpg' %}" alt="cow" style="float:left;width:50%;height:100%;object-fit:cover;">
+				<img src="{{fcow1.0.img_img.url}}" alt="cow" style="float:left;width:50%;height:100%;object-fit:cover;">
+				<img src="{{fcow2.0.img_img.url}}" alt="cow" style="float:left;width:50%;height:100%;object-fit:cover;">
 			</div>
 			<div class="col-lg-1"></div>
 		</div>
 		<div class="row">
 			<div class="col-lg-1"></div>
 			<div class="col-lg-10">
-				<img src="{% static 'images/vache3.jpg' %}" alt="cow" style="float:left;width:50%;height:100%;object-fit:cover;">
-				<img src="{% static 'images/vache4.jpg' %}" alt="cow" style="float:left;width:50%;height:100%;object-fit:cover;">
+				<img src="{{fcow3.0.img_img.url}}" alt="cow" style="float:left;width:50%;height:100%;object-fit:cover;">
+				<img src="{{fcow4.0.img_img.url}}" alt="cow" style="float:left;width:50%;height:100%;object-fit:cover;">
 			</div>
 			<div class="col-lg-1"></div>
 		</div>
@@ -62,7 +62,7 @@
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
 				<ul class="list-group">
-					{% for i in meat_list.list_content %}
+					{% for i in meat_list.0.list_content %}
 
 						<li class="list-group-item d-flex justify-content-between align-items-center">
 						<p>{{i}}</p>
@@ -87,7 +87,7 @@
 
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
-				<a href="{% static 'images/vache1.jpg' %}" class="btn btn-secondary px-4 py-2 btn-sm" download>Download Order</a>
+				<a href="{{pdf_order.0.pdf_file.url}}" class="btn btn-secondary px-4 py-2 btn-sm" download>Download Order</a>
 			</div>
 			<div class="col-md-4"></div>
 		</div>

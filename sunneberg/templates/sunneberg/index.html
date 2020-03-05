@@ -26,13 +26,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <!-- https://pixabay.com/photos/cow-alpine-horn-759018/ -->
               <div class="carousel-inner">
                 <div class="item active">
-                    <div class="banner-top" style="background: url({{farm.img_img.url}}) no-repeat center;">
+                    <div class="banner-top" style="background: url({{farm.0.img_img.url}}) no-repeat center;">
                         <div class="overlay">
                             <div class="container">
                                 <div class="w3layouts-banner-info text-center">
                                     <h3 class="text-wh">About us</h3>
-                                    <h4 class="text-wh mx-auto my-4">{{farm_txt.txt_title}}</h4>
-                                    <p class="text-li mx-auto mt-2">{{farm_txt.txt_text}}</p>
+                                    <h4 class="text-wh mx-auto my-4">{{farm_txt.0.txt_title}}</h4>
+                                    <p class="text-li mx-auto mt-2">{{farm_txt.0.txt_text}}</p>
                                     <a href="/sunneberg/aboutus/" class="button-style mt-sm-5 mt-4">Read More</a>
                                 </div>
                             </div>
@@ -41,13 +41,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
           
                 <div class="item">
-                    <div class="banner-top" style="background: url({{cows.img_img.url}}) no-repeat center"> 
+                    <div class="banner-top" style="background: url({{cows.0.img_img.url}}) no-repeat center"> 
                         <div class="overlay1">
                             <div class="container">
                                 <div class="w3layouts-banner-info text-center">
                                     <h3 class="text-wh">Pastoral farming</h3>
-                                    <h4 class="text-wh mx-auto my-4">{{cows_txt.txt_title}}</h4>
-                                    <p class="text-li mx-auto mt-2">{{cows_txt.txt_text}}</p>
+                                    <h4 class="text-wh mx-auto my-4">{{cows_txt.0.txt_title}}</h4>
+                                    <p class="text-li mx-auto mt-2">{{cows_txt.0.txt_text}}</p>
                                     <a href="/sunneberg/farming/" class="button-style mt-sm-5 mt-4">Read More</a>
                                 </div>
                             </div>
@@ -56,13 +56,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
               
                 <div class="item">
-                    <div class="banner-top" style="background: url({{grappes.img_img.url}}) no-repeat center">
+                    <div class="banner-top" style="background: url({{grappes.0.img_img.url}}) no-repeat center">
                         <div class="overlay">
                             <div class="container">
                                 <div class="w3layouts-banner-info text-center">
                                     <h3 class="text-wh">Vineyard</h3>
-                                    <h4 class="text-wh mx-auto my-4">{{grappes_txt.txt_title}}</h4>
-                                    <p class="text-li mx-auto mt-2">{{grappes_txt.txt_text}}</p>
+                                    <h4 class="text-wh mx-auto my-4">{{grappes_txt.0.txt_title}}</h4>
+                                    <p class="text-li mx-auto mt-2">{{grappes_txt.0.txt_text}}</p>
                                     <a href="/sunneberg/vine/" class="button-style mt-sm-5 mt-4">Read More</a>
                                 </div>
                             </div>
@@ -71,13 +71,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
 
                 <div class="item">
-                    <div class="banner-top" style="background: url({{apple.img_img.url}}) no-repeat center">
+                    <div class="banner-top" style="background: url({{apple.0.img_img.url}}) no-repeat center">
                         <div class="overlay">
                             <div class="container">
                                 <div class="w3layouts-banner-info text-center">
                                     <h3 class="text-wh">Apple</h3>
-                                    <h4 class="text-wh mx-auto my-4">{{apple_txt.txt_title}}</h4>
-                                    <p class="text-li mx-auto mt-2">{{apple_txt.txt_text}}</p>
+                                    <h4 class="text-wh mx-auto my-4">{{apple_txt.0.txt_title}}</h4>
+                                    <p class="text-li mx-auto mt-2">{{apple_txt.0.txt_text}}</p>
                                     <a href="/sunneberg/vine/" class="button-style mt-sm-5 mt-4">Read More</a>
                                 </div>
                             </div>
@@ -97,8 +97,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               </a>
             </div>
     </section>
-    <!-- //banner -->
-    <!-- <img src="/sunneberg{{cows.img_cows.url}}" -->
 {% endblock %}
     
 {% block body %}
@@ -113,21 +111,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<h3 class="heading mb-sm-5 mb-4 text-center"> Our Products and Services</h3>
 		<div class="row blog-grids">
 			<div class="col-lg-4 col-md-6 blog-left mb-lg-0 mb-sm-5 pb-lg-0 pb-5">	
-				<img src="{{pfarminghome.img_img.url}}" class="img-fliud" alt="" style="float:left;width:100%;height:100%;object-fit:cover;" />
+				<img src="{{pfarminghome.0.img_img.url}}" class="img-fliud" alt="" style="float:left;width:100%;height:100%;object-fit:cover;" />
 				<div class="blog-info">
 					<h4>Pastoral Farming <span class="fa fa-pagelines"></span></h4>
 					<p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-6 blog-middle mb-lg-0 mb-sm-5 pb-lg-0 pb-md-5">	
-				<img src="{{grappeshome.img_img.url}}" class="img-fliud" alt="" style="float:left;width:100%;height:100%;object-fit:cover;"/>
+				<img src="{{grappeshome.0.img_img.url}}" class="img-fliud" alt="" style="float:left;width:100%;height:100%;object-fit:cover;"/>
 				<div class="blog-info">
 					<h4>Vineyard <span class="fa fa-pagelines"></span></h4>
 					<p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-6 blog-right mt-lg-0 mt-5 pt-lg-0 pt-md-5">
-				<img src="{{applehome.img_img.url}}" class="img-fliud" alt="" style="float:left;width:100%;height:100%;object-fit:cover;"/>
+				<img src="{{applehome.0.img_img.url}}" class="img-fliud" alt="" style="float:left;width:100%;height:100%;object-fit:cover;"/>
 				<div class="blog-info">
 					<h4>Apple <span class="fa fa-pagelines"></span></h4>
 					<p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
