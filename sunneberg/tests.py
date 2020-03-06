@@ -185,23 +185,10 @@ class ListTest(TestCase):
 
     def test_email_news(self):
         self.template_name = "sunneberg/index.html"
-        factory = RequestFactory()
         mail = "test@email.com"
-        request = factory.post('/index/', {'email': mail})
         self.newslist = ListModel.objects.filter(list_name=settings.NEWSLETTER_USER_LIST)
-
-        #initiate middleware session
-        middleware = SessionMiddleware()
-        middleware.process_request(request)
-        request.session.save()
-
-        #initiate message middleware
-        middleware = MessageMiddleware()
-        middleware.process_request(request)
-        request.session.save()
-        #messages = FallbackStorage(request)
-        result = IndexView.post(self, request)
-        #setattr(request, '_messages', messages)
+        result=self.client.post(reverse('sunneberg:index'), {'email': mail})
+        self.newslist = ListModel.objects.filter(list_name=settings.NEWSLETTER_USER_LIST)
 
         self.assertIn(mail, self.newslist[0].list_content)
         self.assertEqual(result.status_code, 200)
@@ -216,9 +203,25 @@ class ListTest(TestCase):
         request = self.client.get('/sunneberg/myadmin01/', {'new_element': new_elem})
         gotmeatlist = ListModel.objects.filter(list_name=settings.MEAT_LIST_NAME)
         self.assertEqual(meatlist, gotmeatlist[0].list_content)
-        #desting deleting this new element
+
+        #testing deleting this new element
         request = self.client.get('/sunneberg/myadmin01/', {'element': new_elem})
         meatlist.remove(new_elem)
         gotmeatlist = ListModel.objects.filter(list_name=settings.MEAT_LIST_NAME)
         self.assertEqual(meatlist, gotmeatlist[0].list_content)
+
+        #testing of empty list
+        empty = []
+        newmeatlist = ['my elem']
+        gotmeatlist.update(list_content=empty)
+        result = self.client.get('/sunneberg/myadmin01/', {'element': new_elem})
+        gotmeatlist = ListModel.objects.filter(list_name=settings.MEAT_LIST_NAME)
+        self.assertEqual(result.status_code, 200)
+        result = self.client.get('/sunneberg/myadmin01/', {'new_element': new_elem})
+        gotmeatlist = ListModel.objects.filter(list_name=settings.MEAT_LIST_NAME)
+        self.assertEqual(newmeatlist, gotmeatlist[0].list_content)
+        self.assertEqual(result.status_code, 200)
+
+
+
 

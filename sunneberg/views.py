@@ -62,7 +62,6 @@ class IndexView(View):
                                                     'grappeshome': self.grappeshome,
                                                     'applehome': self.applehome})
 
-
     def post(self, request):
         #Adding user to Newsletter list
         email = request.POST.get('email', '')
@@ -218,16 +217,25 @@ class MyadminView(View):
 
         #Deleting element from meat list
         element = request.GET.get('element', '')
-        if element in self.meat[0].list_content and element is not "":
-            temp = self.meat[0].list_content
-            temp.remove(element)
-            self.meat.update(list_content=temp)
+        try:
+            self.meat[0] is not ""
+            if element in self.meat[0].list_content and element is not "":
+                temp = self.meat[0].list_content
+                temp.remove(element)
+                self.meat.update(list_content=temp)
+        except:
+            pass
 
         #Adding element in meat list
         new_element = request.GET.get('new_element', '')
-        if new_element not in self.meat[0].list_content and new_element is not "":
-            temp = self.meat[0].list_content
-            temp.append(new_element)
+        try:
+            self.meat[0] is not ""
+            if new_element not in self.meat[0].list_content and new_element is not "":
+                temp = self.meat[0].list_content
+                temp.append(new_element)
+                self.meat.update(list_content=temp)
+        except:
+            temp = eval('[' + new_element + ']')
             self.meat.update(list_content=temp)
 
         return render(request, self.template_name, {'cows': self.cows,
