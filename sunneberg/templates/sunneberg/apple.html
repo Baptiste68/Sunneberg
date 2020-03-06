@@ -15,8 +15,10 @@
 		<div class="row">
 			<div class="col-lg-1"></div>
 			<div class="col-lg-10">
-				<img src="{% static 'images/appletree.jpg' %}" alt="appletree" style="float:left;width:50%;height:70%;object-fit:cover;">
-				<img src="{% static 'images/apple.jpg' %}" alt="apple" style="float:left;width:50%;height:70%;object-fit:cover;">
+        <!-- https://pixabay.com/photos/apple-fall-juicy-food-autumn-1122537/ -->
+        <!-- https://pixabay.com/photos/apple-apple-tree-fruit-3535566/ -->
+				<img src="{{apple1.0.img_img.url}}" alt="appletree" style="float:left;width:50%;height:80%;object-fit:cover;">
+				<img src="{{apple2.0.img_img.url}}" alt="apple" style="float:left;width:50%;height:80%;object-fit:cover;">
 			</div>
 			<div class="col-lg-1"></div>
 		</div>
@@ -133,7 +135,7 @@
 
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
-				<a href="{% static 'images/vache1.jpg' %}" class="btn btn-secondary px-4 py-2 btn-sm" download>Download Order</a>
+				<a href="{{pdf_order.0.pdf_file.url}}" class="btn btn-secondary px-4 py-2 btn-sm" download>Download Order</a>
 			</div>
 			<div class="col-md-4"></div>
 		</div>

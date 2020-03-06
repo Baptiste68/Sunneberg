@@ -156,6 +156,16 @@ MEDIA_URL = '/sunneberg/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, '../sunneberg/media')
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'sunneberg.proj@gmail.com'
+EMAIL_HOST_PASSWORD = 'P4nD109*'
+
+CONFIRM_UNSUB = 'http://127.0.0.1:8000/sunneberg/unsubconfirm'
+
+# Global variables
 FARM = "Farm_banner_img"
 FARM_TXT = "Farm_banner_txt"
 
@@ -180,6 +190,22 @@ NEWS_LIST_FIRST = "first_in_news_list"
 NEWS_LIST_SECOND = "second_in_news_list"
 NEWS_LIST_THIRD = "third_in_news_list"
 NEWS_LIST_FOURTH = "fourth_in_news_list"
+
+PROJ1_TXT = "project1"
+PROJ2_TXT = "project2"
+PROJ3_TXT = "project3"
+
+FCOW1 = "Farm_cow_1"
+FCOW2 = "Farm_cow_2"
+FCOW3 = "Farm_cow_3"
+FCOW4 = "Farm_cow_4"
+
+APPLE_PAGE1 = "Appel_1"
+APPLE_PAGE2 = "Appel_2"
+
+ORDER_MEAT = "Meat_order_pdf"
+ORDER_VINE = "Vine_order_pdf"
+ORDER_APPLE = "Apple_order_pdf"
 
 #Temporar
 X_FRAME_OPTIONS = 'SAMEORIGIN'
