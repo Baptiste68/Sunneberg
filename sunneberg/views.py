@@ -296,7 +296,7 @@ class MyadminView(View):
             #Stock of vine
             instock = request.POST.items()
             vine_list = self.vine_dict[0].list_content
-            temp_list = [] 
+            temp_list = []
             #set all value to 0 (not available)
             for i in range(len(vine_list)):
                 vine_list[i][1] = 0
