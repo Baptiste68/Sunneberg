@@ -47,3 +47,15 @@ class UnsubModel(models.Model):
 
     def __str__(self):
         return self.unsub_email
+
+
+class DictModel(models.Model):
+    dict_name = models.CharField(max_length=200)
+    dict_content = ArrayField(
+        ArrayField(
+            models.CharField(max_length=200, blank=True),
+        ),
+    )
+
+    def __str__(self):
+        return self.dict_name

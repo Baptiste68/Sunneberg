@@ -194,6 +194,7 @@ NEWS_LIST_FOURTH = "fourth_in_news_list"
 PROJ1_TXT = "project1"
 PROJ2_TXT = "project2"
 PROJ3_TXT = "project3"
+MOTO = "moto"
 
 FCOW1 = "Farm_cow_1"
 FCOW2 = "Farm_cow_2"
@@ -206,6 +207,23 @@ APPLE_PAGE2 = "Appel_2"
 ORDER_MEAT = "Meat_order_pdf"
 ORDER_VINE = "Vine_order_pdf"
 ORDER_APPLE = "Apple_order_pdf"
+
+VINE_TUPLE_LIST = [
+    ('leo_millot', 1),
+    ('barrique', 0),
+    ('m_foch', 0),
+    ('syrah', 0),
+    ('seval_blanc', 0),
+    ('chardonay', 0),
+    ('rose', 0),
+    ('mousseux', 0),
+    ('birne', 0),
+    ('mirabelle', 0),
+    ('zwetschge', 0),
+    ('quitte', 0),
+]
+
+VINE_LIST_NAME = "vine_dict"
 
 #Temporar
 X_FRAME_OPTIONS = 'SAMEORIGIN'
