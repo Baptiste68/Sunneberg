@@ -110,11 +110,13 @@ class AboutusView(View):
     project1 = SiteText.objects.filter(txt_name=settings.PROJ1_TXT)
     project2 = SiteText.objects.filter(txt_name=settings.PROJ2_TXT)
     project3 = SiteText.objects.filter(txt_name=settings.PROJ3_TXT)
+    moto = SiteText.objects.filter(txt_name=settings.MOTO)
 
     def get(self, request):
         return render(request, self.template_name, {'proj1': self.project1,
                                                     'proj2': self.project2,
-                                                    'proj3': self.project3})
+                                                    'proj3': self.project3,
+                                                    'moto': self.moto})
 
 
 class FarmingView(View):
@@ -145,9 +147,11 @@ class VineView(View):
     """
     template_name = 'sunneberg/vine.html'
     vine_order = PdfModel.objects.filter(pdf_name=settings.ORDER_VINE)
+    vine_list = ListModel.objects.filter(list_name=settings.VINE_LIST_NAME)    
 
     def get(self, request):
-        return render(request, self.template_name, {'pdf_order': self.vine_order})
+        return render(request, self.template_name, {'pdf_order': self.vine_order,
+                                                    'vine': self.vine_list})
 
 
 class AppleView(View):
@@ -211,6 +215,8 @@ class MyadminView(View):
     order_meat = PdfModel.objects.filter(pdf_name=settings.ORDER_MEAT)
     order_vine = PdfModel.objects.filter(pdf_name=settings.ORDER_VINE)
     order_apple = PdfModel.objects.filter(pdf_name=settings.ORDER_APPLE)
+    vine_dict = ListModel.objects.filter(list_name=settings.VINE_LIST_NAME)
+    moto = SiteText.objects.filter(txt_name=settings.MOTO)
 
     def get(self, request):
         form = ConnexionForm(request.POST)
@@ -268,7 +274,9 @@ class MyadminView(View):
                                                     'fourth': self.fourth,
                                                     'order_meat': self.order_meat,
                                                     'order_vine': self.order_vine,
-                                                    'order_apple': self.order_apple})
+                                                    'order_apple': self.order_apple,
+                                                    'vine_dict': self.vine_dict,
+                                                    'moto': self.moto})
 
 
     def post(self, request):
@@ -283,6 +291,27 @@ class MyadminView(View):
                 login(request, user)  # nous connectons l'utilisateur
             else:  # sinon une erreur sera affichée
                 error = True
+
+        else:
+            #Stock of vine
+            instock = request.POST.items()
+            vine_list = self.vine_dict[0].list_content
+            temp_list = [] 
+            #set all value to 0 (not available)
+            for i in range(len(vine_list)):
+                vine_list[i][1] = 0
+
+            #get a list of the key
+            for key, val in vine_list:
+                temp_list.append(key)
+
+            for key, val in instock:
+                #if request item in list set vine to available (1)
+                if key in temp_list:
+                    index = temp_list.index(key)
+                    vine_list[index][1] = 1
+
+            self.vine_dict.update(list_content=vine_list)
 
         return render(request, self.template_name, {'cows': self.cows,
                                                     'farm': self.farm,
@@ -307,7 +336,17 @@ class MyadminView(View):
                                                     'fcow3': self.farmingcow3,
                                                     'fcow4': self.farmingcow4,
                                                     'apple1': self.applepage1,
-                                                    'apple2': self.applepage2})
+                                                    'apple2': self.applepage2,
+                                                    'mvp': self.mvp,
+                                                    'first': self.first,
+                                                    'second': self.second,
+                                                    'third': self.third,
+                                                    'fourth': self.fourth,
+                                                    'order_meat': self.order_meat,
+                                                    'order_vine': self.order_vine,
+                                                    'order_apple': self.order_apple,
+                                                    'vine_dict': self.vine_dict,
+                                                    'moto': self.moto})
 
 
 def edit_thing(request, img_name):
@@ -633,6 +672,12 @@ class BasicInsert(View):
                                   list_content=[])
             my_insert.save()
 
+        # Vine available list
+        if not ListModel.objects.filter(list_name=settings.VINE_LIST_NAME):
+            my_insert = ListModel(list_name=settings.VINE_LIST_NAME,
+                                  list_content=settings.VINE_TUPLE_LIST)
+            my_insert.save()
+
         """
             P Farming
         """
@@ -736,6 +781,13 @@ class BasicInsert(View):
         if not SiteText.objects.filter(txt_name=settings.PROJ3_TXT):
             my_insert = SiteText(txt_name=settings.PROJ3_TXT,
                                  txt_title="VULPUTATE AC",
+                                 txt_text="Vulputate ac met semper varius\
+                                      Nullam consequat sapien sed leot cursus rhoncus. Nullam dui mi.")
+            my_insert.save()
+
+        if not SiteText.objects.filter(txt_name=settings.MOTO):
+            my_insert = SiteText(txt_name=settings.MOTO,
+                                 txt_title="",
                                  txt_text="Vulputate ac met semper varius\
                                       Nullam consequat sapien sed leot cursus rhoncus. Nullam dui mi.")
             my_insert.save()

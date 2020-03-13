@@ -127,6 +127,11 @@ def populate():
                              pdf_title="April 2019 - Easter")
         my_insert.save()
 
+    if not ListModel.objects.filter(list_name=settings.VINE_LIST_NAME):
+            my_insert = ListModel(list_name=settings.VINE_LIST_NAME,
+                                  list_content=settings.VINE_TUPLE_LIST)
+            my_insert.save()
+
 
 
 class GeneralTest(TestCase):
@@ -178,6 +183,10 @@ class UserTest(TestCase):
 
 
 class ListTest(TestCase):
+    """
+        Testing correct behavior of lists
+        after a POST request
+    """
     def setUp(self):
         self.template_name = ''
         self.client = Client()
@@ -221,6 +230,29 @@ class ListTest(TestCase):
         gotmeatlist = ListModel.objects.filter(list_name=settings.MEAT_LIST_NAME)
         self.assertEqual(newmeatlist, gotmeatlist[0].list_content)
         self.assertEqual(result.status_code, 200)
+
+    def test_available_list(self):
+        #testing switching availability to 0
+        val = 0
+        vine_list = ListModel.objects.filter(list_name=settings.VINE_LIST_NAME)
+        vine_list = vine_list[0].list_content
+        index = vine_list.index("leo_millot")
+        vine_list[index][0] = val
+        request = self.client.get('/sunneberg/myadmin01/', {'leo_millot': val})
+        new_vine_list = ListModel.objects.filter(list_name=settings.VINE_LIST_NAME)
+        self.assertEqual(vine_list[index][0], new_vine_list[0].list_content[index][0])
+
+        #testing switching it back to 1
+        val = 1
+        vine_list = ListModel.objects.filter(list_name=settings.VINE_LIST_NAME)
+        vine_list = vine_list[0].list_content
+        index = vine_list.index("leo_millot")
+        vine_list[index][0] = val
+        request = self.client.get('/sunneberg/myadmin01/', {'leo_millot': val})
+        new_vine_list = ListModel.objects.filter(list_name=settings.VINE_LIST_NAME)
+        self.assertEqual(vine_list[index][0], new_vine_list[0].list_content[index][0])
+
+
 
 
 

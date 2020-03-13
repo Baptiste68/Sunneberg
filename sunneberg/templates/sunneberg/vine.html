@@ -8,7 +8,7 @@
 {% block body %}
 {% load static %}
 
-<!-- team -->
+<!-- Vine -->
 <div class="vine py-5" id="team">
 	<div class="container py-lg-3">
         <h3 class="heading mb-sm-5 mb-4 text-center"> Our Vine</h3>
@@ -17,6 +17,7 @@
             <p><strong>Note:</strong> All our vine are bio</p>
             <div class="panel-group" id="accordion">
                 <!-- Red Wine -->
+                <!-- https://pixabay.com/vectors/alcohol-bar-beverage-blanc-blank-1031713/ -->
               <div class="panel panel-default">
                 <div class="panel-heading" style="background-color: rgb(115,0,62); color: white">
                   <h4 class="panel-title">
@@ -41,7 +42,16 @@
                                     XX CHF
                                 </ul>
                                 <ul class="mt-2">
-                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                    Availability : 
+                                    {% for key, val in vine.0.list_content %}
+                                        {% if key == "leo_millot" %}
+                                            {% if val == "1" %}
+                                                <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                            {% else %}
+                                                <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not_available">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -61,7 +71,16 @@
                                     XX CHF
                                 </ul>
                                 <ul class="mt-2">
-                                    Availability : <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not available">
+                                    Availability : 
+                                    {% for key, val in vine.0.list_content %}
+                                        {% if key == "barrique" %}
+                                            {% if val == "1" %}
+                                                <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                            {% else %}
+                                                <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not_available">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -81,7 +100,16 @@
                                     XX CHF
                                 </ul>
                                 <ul class="mt-2">
-                                    Availability : <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not available">
+                                    Availability : 
+                                    {% for key, val in vine.0.list_content %}
+                                        {% if key == "m_foch" %}
+                                            {% if val == "1" %}
+                                                <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                            {% else %}
+                                                <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not_available">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -101,7 +129,16 @@
                                     XX CHF
                                 </ul>
                                 <ul class="mt-2">
-                                    Availability : <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not available">
+                                    Availability : 
+                                    {% for key, val in vine.0.list_content %}
+                                        {% if key == "syrah" %}
+                                            {% if val == "1" %}
+                                                <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                            {% else %}
+                                                <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not_available">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -111,6 +148,7 @@
               </div>
                 <!-- //Red Wine -->
                 <!-- White Wine -->
+                <!-- https://pixabay.com/vectors/bottle-wine-drink-blank-alcohol-159230/ -->
               <div class="panel panel-default">
                 <div class="panel-heading" style="background-color: rgb(255,255,153);">
                   <h4 class="panel-title">
@@ -119,7 +157,6 @@
                 </div>
                 <div id="collapse2" class="panel-collapse collapse">
                     <div class="row team-bottom text-center">
-
                         <div class="bottle col-lg-3 col-sm-6">
                             <img src="{% static 'images/whitebottle.jpg' %}" class="img-fluid" alt="">
                         </div>
@@ -135,7 +172,16 @@
                                     XX CHF
                                 </ul>
                                 <ul class="mt-2">
-                                    Availability : <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="available">
+                                    Availability : 
+                                    {% for key, val in vine.0.list_content %}
+                                        {% if key == "seval_blanc" %}
+                                            {% if val == "1" %}
+                                                <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                            {% else %}
+                                                <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not_available">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -155,7 +201,16 @@
                                     XX CHF
                                 </ul>
                                 <ul class="mt-2">
-                                    Availability : <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="available">
+                                    Availability : 
+                                    {% for key, val in vine.0.list_content %}
+                                        {% if key == "chardonay" %}
+                                            {% if val == "1" %}
+                                                <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                            {% else %}
+                                                <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not_available">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -172,7 +227,7 @@
                   </h4>
                 </div>
                 <div id="collapse3" class="panel-collapse collapse">
-                    <div class="row team-bottom text-center">
+                    <div class="bottle row team-bottom text-center">
                         <div class="col-lg-6 col-sm-6 team-grid">
                             <img src="{% static 'images/rosebottle.jpg' %}" class="img-fluid" alt="">
                         </div>
@@ -188,7 +243,16 @@
                                     XX CHF
                                 </ul>
                                 <ul class="mt-2">
-                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                    Availability : 
+                                    {% for key, val in vine.0.list_content %}
+                                        {% if key == "rose" %}
+                                            {% if val == "1" %}
+                                                <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                            {% else %}
+                                                <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not_available">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -204,9 +268,9 @@
                   </h4>
                 </div>
                 <div id="collapse4" class="panel-collapse collapse">
-                    <div class="row team-bottom text-center">
+                    <div class="bottle row team-bottom text-center">
                         <div class="col-lg-6 col-sm-6 team-grid">
-                            <img src="{% static 'images/rosebottle.jpg' %}" class="img-fluid" alt="">
+                            <img src="{% static 'images/champ.jpg' %}" class="img-fluid" alt="">
                         </div>
                         <div class="col-lg-6 col-sm-6 team-grid">
                             <div class="caption">
@@ -220,7 +284,16 @@
                                     XX CHF
                                 </ul>
                                 <ul class="mt-2">
-                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                    Availability : 
+                                    {% for key, val in vine.0.list_content %}
+                                        {% if key == "mousseux" %}
+                                            {% if val == "1" %}
+                                                <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                            {% else %}
+                                                <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not_available">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %} 
                                 </ul>
                             </div>
                         </div>
@@ -236,7 +309,7 @@
                   </h4>
                 </div>
                 <div id="collapse5" class="panel-collapse collapse">
-                    <div class="row team-bottom text-center">
+                    <div class="bottle row team-bottom text-center">
                         <div class="col-lg-3 col-sm-6 team-grid">
                             <img src="{% static 'images/mirabellebottle.jpg' %}" class="img-fluid" alt="">
                             <div class="caption">
@@ -247,7 +320,16 @@
                                     XX CHF
                                 </ul>
                                 <ul class="mt-2">
-                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                    Availability : 
+                                    {% for key, val in vine.0.list_content %}
+                                        {% if key == "birne" %}
+                                            {% if val == "1" %}
+                                                <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                            {% else %}
+                                                <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not_available">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -261,7 +343,16 @@
                                     XX CHF
                                 </ul>
                                 <ul class="mt-2">
-                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                    Availability : 
+                                    {% for key, val in vine.0.list_content %}
+                                        {% if key == "mirabelle" %}
+                                            {% if val == "1" %}
+                                                <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                            {% else %}
+                                                <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not_available">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -275,7 +366,16 @@
                                     XX CHF
                                 </ul>
                                 <ul class="mt-2">
-                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                    Availability : 
+                                    {% for key, val in vine.0.list_content %}
+                                        {% if key == "zwetschge" %}
+                                            {% if val == "1" %}
+                                                <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                            {% else %}
+                                                <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not_available">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -289,7 +389,16 @@
                                     XX CHF
                                 </ul>
                                 <ul class="mt-2">
-                                    Availability : <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                    Availability : 
+                                    {% for key, val in vine.0.list_content %}
+                                        {% if key == "quitte" %}
+                                            {% if val == "1" %}
+                                                <img src="{% static 'images/available.png' %}" class="img-fluid" alt="available">
+                                            {% else %}
+                                                <img src="{% static 'images/not_available.png' %}" class="img-fluid" alt="not_available">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -325,14 +434,10 @@
 <div class="vinepartner py-md-2">
     <div class="container">
         <h2>Our Vine partner</h2>
-        <section class="customer-logos slider" style="padding-top: 10px; padding-bottom: 10px;">
-        <div class="slide"><img src="{% static 'images/s1.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
-        <div class="slide"><img src="{% static 'images/s2.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
-        <div class="slide"><img src="{% static 'images/s3.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
-        <div class="slide"><img src="{% static 'images/5.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
-        <div class="slide"><img src="{% static 'images/cubi.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
-        <div class="slide"><img src="{% static 'images/rosebottle.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
-        <div class="slide"><img src="{% static 'images/te1.jpg' %}" style="float:left;width:100%;height:100%;object-fit:cover;"></div>
+        <section style="padding-top: 10px; padding-bottom: 10px;">
+            <div class="col-xs-4"><img src="{% static 'images/partner.jpg' %}"> <p>pwoeiur wpoiut writui iwerut</p> </div>
+            <div class="col-xs-4"><img src="{% static 'images/partner.jpg' %}"> <p>pwoeiur wpoiut writui iwerut</p></div>
+            <div class="col-xs-4"><img src="{% static 'images/partner.jpg' %}"> <p>pwoeiur wpoiut writui iwerut</p></div>
         </section>
     </div>
 </div>
