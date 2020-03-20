@@ -23,7 +23,6 @@ urlpatterns = [
     path(r'editlist/', views.EditListView.as_view(), name='editlist'),
     path(r'editlist/?', views.EditListView.as_view(), name='editlist'),
     path(r'contact/', views.ContactView.as_view(), name='contact'),
-    path(r'testcarou/', views.CarouView.as_view(), name='testcarou'),
     path(r'news/', xframe_options_sameorigin(views.NewsView.as_view()), name='news'),
     path(r'unsubscribe/', views.UnsubView.as_view(), name='unsub'),
     path(r'unsubscribe/^$', views.UnsubView.as_view(), name='unsub'),
