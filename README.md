@@ -29,3 +29,7 @@ L’architecture de déploiement est représenté par le diagramme suivant
 ![Screenshot](https://github.com/Baptiste68/Sunneberg/blob/master/DeploymentDiag.PNG)
 
 
+## Site internet
+
+http://207.154.252.147/sunneberg/
+
