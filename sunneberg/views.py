@@ -60,6 +60,7 @@ class IndexView(View):
         """
         #Adding user to Newsletter list
         email = request.POST.get('email', '')
+        email = email.lower()
         try:
             self.newslist[0] is not ""
             if email not in self.newslist[0].list_content and email is not "":
@@ -69,20 +70,20 @@ class IndexView(View):
                     self.newslist.update(list_content=temp)
                     messages.info(
                         request, 'Your email has been added to the \
-                            newsletter difusion list!')
+newsletter difusion list!')
                 except:
                     messages.info(request, 'Your email could not be added!')
             else:
                 messages.info(
                     request, 'Your email is already in the \
-                        newsletter difusion list...')
+newsletter difusion list...')
 
         except:
             try:
                 self.newslist.update(list_content=temp)
                 messages.info(
                     request, 'Your email has been added to the \
-                        newsletter difusion list!')
+newsletter difusion list!')
             except:
                 messages.info(request, 'Your email could not be added!')
 
@@ -541,6 +542,7 @@ class UnsubView(View):
 
     def post(self, request):
         email = request.POST.get('email_un', '')
+        email = email.lower()
         if email in self.newslist[0].list_content:
             if not UnsubModel.objects.filter(unsub_email=email):
                 my_insert = UnsubModel(unsub_email=email,
@@ -595,6 +597,7 @@ class UnsubConfView(View):
 
     def post(self, request):
         email = request.POST.get('email_conf', '')
+        email = email.lower()
         code = request.POST.get('code', '')
         if email in self.newslist[0].list_content:
             try:
