@@ -554,24 +554,26 @@ class UnsubView(View):
                 try:
                     send_mail(
                         'Unsubscribe Sunnenberg NewsLetter',
-                        "Hello \n Please click to this link \
-                            to end the unsubscription:\n\
-                                 " + settings.CONFIRM_UNSUB + " \n " +
-                        "Your code is " + str(code),
-                        'baptistesimon1@gmail.com',
+                        "Hello \nPlease click to this link" +
+                        "to end the unsubscription process:\n"
+                        + settings.CONFIRM_UNSUB + " \n " +
+                        "Your code is " + str(code) + "\n\n" +
+                        "Please, do not answer this email.",
+                        settings.EMAIL_HOST_USER,
                         [email],
                         fail_silently=False,
                     )
                     messages.info(
                         request, 'SUCCES: You should have received an \
-                            email to confirm the deletion')
+email to confirm the deletion')
 
                 except:
                     UnsubModel.objects.filter(unsub_email=email).delete()
                     messages.info(request, 'ERROR: while trying to send email')
             else:
                 messages.info(
-                    request, 'ERROR: Your email is already in the deletion process...')
+                    request, 'ERROR: Your email is already in the deletion\
+ process...')
         else:
             messages.info(
                 request, 'ERROR: Your email is not in the NewsLetter list...')
