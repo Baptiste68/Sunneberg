@@ -9,4 +9,6 @@ Nous proposons un site internet afin que ce dernier puisse être visible sur le 
 et avoir une communication active avec ses clients.
 
 
+![Screenshot](DeploymentDiag.png)
+
 
