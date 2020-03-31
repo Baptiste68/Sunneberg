@@ -1,3 +1,6 @@
+"""
+URL for redirections
+"""
 from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
@@ -6,7 +9,7 @@ from django.views.decorators.clickjacking import xframe_options_sameorigin
 
 from . import views
 
-app_name='sunneberg'
+app_name = 'sunneberg'
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     path('aboutus/', views.AboutusView.as_view(), name='aboutus'),
